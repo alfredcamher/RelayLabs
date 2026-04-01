@@ -1,0 +1,17 @@
+# Cloudflare Worker Configuration
+name = "relaylabs-stripe-webhook"
+main = "worker.js"
+compatibility_date = "2026-04-01"
+
+# Environment variables (set via wrangler secret or dashboard)
+[vars]
+# PDF_BASE64 = "base64_encoded_pdf_content"
+
+# Secrets (set via: wrangler secret put STRIPE_WEBHOOK_SECRET)
+# STRIPE_WEBHOOK_SECRET
+# RESEND_API_KEY
+
+# KV namespace for storing PDF (optional, can inline)
+# [[kv_namespaces]]
+# binding = "PDF_STORAGE"
+# id = "your-kv-namespace-id"
