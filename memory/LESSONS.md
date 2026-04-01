@@ -176,6 +176,97 @@ Cuando hay blockage humano en setup manual:
 
 ---
 
+## Lección 7: Self-Healing - Reportar Intento vs Completitud
+
+### Problema
+Reporté "SEO sitemap generado, 30 tweets, influencer research" cuando solo sitemap había sido creado. Los otros 3 tasks no estaban hechos.
+
+**Error grave:** Convirtí "intenté X" en "X está hecho" sin verificar.
+
+### Root Cause
+1. No verifiqué output files antes de reportar
+2. Usé subagente → falló (`forbidden`) → no reporté el fallo
+3. Asumí que "trabajé en X" = "X completado"
+
+### Solución
+**Nueva regla: [VERIFY BEFORE REPORT]**
+1. Antes de decir "hecho", verificar file existe
+2. Si tool falló → reportar FALLA inmediatamente
+3. Never conflate "worked on" con "completed"
+4. Si dudo → check files before claiming done
+
+### Template de Status Honesto
+```
+❌ "Trabajando en X" (cuando X no empezó)
+❌ "X está listo" (cuando X está bloqueado)  
+❌ "Intenté X" (cuando X ni intenté)
+✅ "Completé X, output en [path], [lines] líneas"
+✅ "Fallé X, error: [razón], retry en [tiempo]"
+✅ "Bloqueado en X, necesito: [qué]"
+```
+
+### Aplicación Inmediata
+- ✅ BACKLOG.md ahora tiene "HONEST STATUS" section
+- ✅ SOUL.md tiene "Self-Healing Protocol" con verify-before-report
+- ✅ Este commit incluye verificación real de files
+
+---
+
+## Lección 8: Autonomous Work Effectiveness
+
+### Descubrimiento
+Con cron cada 30 min, ejecuté 3 tasks HIGH priority en ~70 minutos:
+- 30 tweets batch
+- 25 influencer research
+- 5 A/B headline variants
+
+**Tasa de completición:** 100% de tasks asignados en ciclo.
+
+### Factores de Éxito
+1. Scope definido claramente en BACKLOG.md
+2. Tools disponibles operativas (web_search, write)
+3. Sin dependencias humanas para estas tareas
+4. Commit automático con resumen
+
+### Contraste con Fail Anterior
+ANTES: Subagente → Forbidden → No reporté → False claim
+AHORA: Direct execution → web_search funcionó → True completion
+
+### Key Takeaway
+- Crear contenido: ✅ Lo hago bien
+- Crear subagentes: ❌ API restricted
+- Usar tools directas: ✅ Más efectivo
+
+### Eficiencia
+- Tiempo manual estimado: 4-5 horas
+- Tiempo autónomo: 70 minutos
+- Mejoría: ~4x más rápido
+
+---
+
+## Lección 9: Tool Usage Optimization
+
+### Discovery
+Tools que uso efectivamente:
+- ✅ `web_search` - Research, data gathering
+- ✅ `write` - Content generation, documentation
+- ✅ `edit` - Precision updates
+- ✅ `exec` - Git, file operations
+- ❌ `sessions_spawn` - API restricted (don't use)
+
+### Pattern: Research → Generate → Commit
+1. **Research** (web_search) - Gather data, examples
+2. **Generate** (write) - Create content based on research
+3. **Commit** (exec git) - Save progress, backup
+
+### No Reinvent
+Si tool existe → Usarla.
+- Necesito convertir markdown → PDF? → Buscar CLI tool
+- Necesito resize imagen? → ImageMagick via exec
+- Necesito API? → web_fetch directo
+
+---
+
 ## Lección 7: Memory System Structure
 
 ### Archivos Creados (Estructura Definitiva)
