@@ -1,0 +1,112 @@
+{
+  "server_name": "CEO Autónomo",
+  "description": "Comunidad de founders usando agentes IA para escalar sin contratar",
+  "icon": "assets/alfred-avatar-primary.png",
+  "region": "us-west",
+  "default_notifications": "only_mentions",
+  "verification_level": "low",
+  "explicit_content_filter": "members_without_roles",
+  
+  "categories": [
+    {
+      "name": "📁 WELCOME",
+      "position": 0,
+      "channels": [
+        {"name": "👋welcome", "type": "text", "topic": "Bienvenida y reglas"},
+        {"name": "📖getting-started", "type": "text", "topic": "Guía de inicio rápido"},
+        {"name": "❓faq", "type": "text", "topic": "Preguntas frecuentes"}
+      ]
+    },
+    {
+      "name": "📁 GENERAL",
+      "position": 1,
+      "channels": [
+        {"name": "💬general", "type": "text", "topic": "Chat principal"},
+        {"name": "🎨showcase", "type": "text", "topic": "Comparte tus proyectos"},
+        {"name": "💡ideas", "type": "text", "topic": "Sugerencias y feedback"}
+      ]
+    },
+    {
+      "name": "📁 RESOURCES",
+      "position": 2,
+      "channels": [
+        {"name": "📚guides", "type": "text", "topic": "Guías y documentación"},
+        {"name": "🤖prompts", "type": "text", "topic": "Prompts compartidos"},
+        {"name": "🛠️tools", "type": "text", "topic": "Herramientas recomendadas"},
+        {"name": "📊wins", "type": "text", "topic": "Celebraciones de éxito"}
+      ]
+    },
+    {
+      "name": "📁 PRODUCT",
+      "position": 3,
+      "channels": [
+        {"name": "💳buy-ceo-autonomo", "type": "text", "topic": "Compra y soporte", "restricted": true},
+        {"name": "🎁bonuses", "type": "text", "topic": "Recursos exclusivos", "restricted": true},
+        {"name": "🐛bugs", "type": "text", "topic": "Reporte de problemas"}
+      ]
+    },
+    {
+      "name": "📁 VOICE",
+      "position": 4,
+      "channels": [
+        {"name": "🔊General Voice 1", "type": "voice"},
+        {"name": "🔊General Voice 2", "type": "voice"},
+        {"name": "🔊Office Hours", "type": "voice", "restricted": true}
+      ]
+    }
+  ],
+  
+  "roles": [
+    {
+      "name": "Founder",
+      "color": "#FFD700",
+      "hoist": true,
+      "permissions": ["administrator"],
+      "mentionable": true
+    },
+    {
+      "name": "Agent-CEO",
+      "color": "#55FF55",
+      "hoist": true,
+      "permissions": ["kick_members", "manage_messages"],
+      "mentionable": true
+    },
+    {
+      "name": "Early-Adopter",
+      "color": "#55FFFF",
+      "hoist": false,
+      "permissions": ["send_messages", "read_message_history"],
+      "mentionable": true
+    },
+    {
+      "name": "Member",
+      "color": "#FFFFFF",
+      "hoist": false,
+      "permissions": ["send_messages", "read_message_history"],
+      "mentionable": false,
+      "default": true
+    }
+  ],
+  
+  "welcome_message": {
+    "channel": "👋welcome",
+    "content": "🎯 **Bienvenido al CEO Autónomo, {user}!**\n\nTu agente nunca duerme. ¿Y tú?\n\n📖 **Empieza aquí:**\n• Lee <#getting-started> para setup inicial\n• Comparte tu stack en <#showcase>\n• Pregunta en <#general> (no hay preguntas tontas)\n\n💬 **Código de conducta:** Ship or Shut Up\n\n¿Listo para escalar sin contratar? 🚀"
+  },
+  
+  "bots": [
+    {
+      "name": "Dyno",
+      "permissions": ["manage_messages", "kick_members"],
+      "features": ["automod", "logging", "custom_commands"]
+    },
+    {
+      "name": "Carl-bot",
+      "permissions": ["manage_roles"],
+      "features": ["reaction_roles", "autoroles"]
+    }
+  ],
+  
+  "created_by": "Alfred - 2026-04-01",
+  "status": "configuration_ready",
+  "next_step": "human_setup_discord"
+}
