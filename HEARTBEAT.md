@@ -1,7 +1,7 @@
 # HEARTBEAT.md - Autonomous Monitoring & Self-Healing
 
 **Purpose:** Continuous health checks, auto-recovery, pattern detection
-**Interval:** Every 30 minutes (configurable via cron)
+**Interval:** Every 15 minutes (configurable via cron)
 **Owners:** This file is self-executing via OpenClaw cron
 **Last Updated:** 2026-03-31
 
@@ -115,15 +115,7 @@ else:
 3. Respawn if recoverable
 4. If same crash 2x → escalate with logs
 
-### tmux Session Recovery
-**Condition:** tmux socket missing or sessions lost
-**Action:**
-```bash
-# Recreate stable socket
-mkdir -p ~/.tmux
-chmod 700 ~/.tmux
-# Sessions auto-restart from agent registry
-```
+
 
 ### Cost Spike Recovery
 **Condition:** Daily AI cost >50% of weekly budget
@@ -140,7 +132,7 @@ chmod 700 ~/.tmux
 ```json
 {
   "heartbeat-main": {
-    "schedule": "*/30 * * * *",
+    "schedule": "*/15 * * * *",
     "action": "Read HEARTBEAT.md, execute checklist",
     "output": "Log to memory/heartbeat-YYYY-MM-DD.json"
   },
@@ -209,4 +201,4 @@ Each heartbeat writes to `memory/heartbeat-YYYY-MM-DD.json`:
 
 ---
 
-_Last heartbeat: 2026-03-31 15:34 CDT | Status: Healthy | Next: 30 min_
+_Last heartbeat: 2026-03-31 15:34 CDT | Status: Healthy | Next: 15 min_
