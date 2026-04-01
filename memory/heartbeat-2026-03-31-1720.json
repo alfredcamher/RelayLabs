@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-03-31T22:20:04Z",
+  "heartbeat_id": "hb-2026-03-31-1720",
+  "heartbeat_version": "1.5",
+  "interval_minutes": 10,
+  "checks": {
+    "agents": {
+      "status": "stable",
+      "total_active": 0,
+      "total_recent": 1,
+      "stalled": 0,
+      "crashed": 0,
+      "completed": 1,
+      "health_check_pass": true,
+      "details": "No active agents. System stable."
+    },
+    "git": {
+      "status": "stable",
+      "branch": "master",
+      "untracked_count": 35,
+      "last_commit": "cfc1522 log: Subagent session complete - Lead Research MVP delivered",
+      "status": "STABLE (no changes since last check)"
+    },
+    "memory_tier_decay": {
+      "status": "healthy",
+      "hot_tier": {
+        "file": "memory/2026-03-31.md",
+        "size_bytes": 13000,
+        "status": "active"
+      },
+      "warm_tier": {
+        "files": ["2026-02-05.md"],
+        "age_days": 54
+      },
+      "cold_tier": {
+        "file": "MEMORY.md",
+        "status": "ready"
+      }
+    },
+    "self_assessment": {
+      "status": "healthy",
+      "token_usage": "~26%",
+      "blockers": 0,
+      "escalations": 0
+    }
+  },
+  "summary": "System stable. No changes detected. Ready for deployment.",
+  "cost": "$0.00",
+  "next_check": "2026-03-31T23:30:04Z"
+}

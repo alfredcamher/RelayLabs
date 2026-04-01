@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-03-31T22:40:04Z",
+  "heartbeat_id": "hb-2026-03-31-1740",
+  "version": "1.7",
+  "status": "healthy_idle",
+  "checks": {
+    "agents": {"active": 0, "completed": 1, "stalled": 0, "status": "idle"},
+    "git": {"branch": "master", "untracked": 37, "last_commit_age_min": 57, "status": "stable"},
+    "memory": {"hot_kb": 14, "warm_days": 54, "status": "healthy"},
+    "self": {"token_pct": 26, "blockers": 0, "escalations": 0}
+  },
+  "cost": "$0.00",
+  "next": "2026-03-31T23:50:04Z"
+}

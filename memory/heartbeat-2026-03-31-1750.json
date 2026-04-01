@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-03-31T22:50:13Z",
+  "heartbeat_id": "hb-2026-03-31-1750",
+  "version": "1.8",
+  "status": "healthy_idle",
+  "checks": {
+    "agents": {"active": 0, "completed": 1, "stalled": 0, "status": "idle"},
+    "git": {"branch": "master", "untracked": 39, "last_commit_age_min": 67, "status": "stable"},
+    "memory": {"hot_kb": 14, "warm_days": 54, "status": "healthy"},
+    "self": {"token_pct": 26, "blockers": 0, "escalations": 0}
+  },
+  "summary": "System idle and stable. No active work.",
+  "cost": "$0.00",
+  "next": "2026-04-01T00:00:00Z"
+}

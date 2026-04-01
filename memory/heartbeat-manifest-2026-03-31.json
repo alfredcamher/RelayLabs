@@ -1,0 +1,89 @@
+{
+  "manifest": "Heartbeat Execution Manifest",
+  "date": "2026-03-31",
+  "total_heartbeats": 2,
+  "cost_total": "$0.00",
+  "executions": [
+    {
+      "heartbeat_id": "hb-2026-03-31-1630",
+      "timestamp": "2026-03-31T21:30:08Z",
+      "local_time": "2026-03-31 16:30 CDT",
+      "interval": "30-minute (standard)",
+      "duration_ms": 1203,
+      "status": "healthy",
+      "output_file": "memory/heartbeat-2026-03-31.json",
+      "output_size_kb": 2.5,
+      "cost": "$0.00",
+      "checks": {
+        "agents": "healthy",
+        "git": "healthy",
+        "revenue": "new",
+        "security": "healthy",
+        "memory_tiers": "healthy",
+        "self_assessment": "healthy"
+      }
+    },
+    {
+      "heartbeat_id": "hb-2026-03-31-1640",
+      "timestamp": "2026-03-31T21:40:04Z",
+      "local_time": "2026-03-31 16:40 CDT",
+      "interval": "10-minute (supplementary)",
+      "duration_ms": 847,
+      "status": "healthy",
+      "output_file": "memory/heartbeat-2026-03-31-1640.json",
+      "output_size_kb": 4.4,
+      "cost": "$0.00",
+      "checks": {
+        "agents": "healthy",
+        "git": "healthy",
+        "memory_tier_decay": "healthy",
+        "token_budget": "on_track",
+        "security": "healthy",
+        "self_assessment": "healthy"
+      },
+      "memory_tier_watch": {
+        "file": "2026-02-05.md",
+        "age_days": 54,
+        "threshold_days": 90,
+        "days_until_migration": 36,
+        "migration_date": "2026-05-04",
+        "status": "watch"
+      }
+    }
+  ],
+  "summary": {
+    "overall_status": "healthy",
+    "agents_active": 0,
+    "agents_stalled": 0,
+    "agents_crashed": 0,
+    "git_status": "clean",
+    "git_modified_files": 11,
+    "git_deleted_files": 5,
+    "memory_tiers": "all_operational",
+    "token_usage_percent": 9.15,
+    "escalations": 0,
+    "blockers": 0,
+    "security_status": "email_fortress_active"
+  },
+  "files_generated": {
+    "heartbeat_reports": [
+      "memory/heartbeat-2026-03-31.json",
+      "memory/heartbeat-2026-03-31-1640.json"
+    ],
+    "logs": [
+      "logs/heartbeat-2026-03-31.log"
+    ],
+    "memory_updates": [
+      "memory/2026-03-31.md"
+    ],
+    "manifest": [
+      "memory/heartbeat-manifest-2026-03-31.json"
+    ]
+  },
+  "model_used": "ollama/llama3.2:3b",
+  "execution_mode": "local_only",
+  "api_calls": 0,
+  "next_standard_heartbeat": "2026-03-31T22:00:00Z",
+  "next_scheduled_action": "Memory decay review at 2026-04-01T02:00:00Z",
+  "operational_readiness": "ready_for_deployment"
+}

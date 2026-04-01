@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-03-31T23:10:09Z",
+  "heartbeat_id": "hb-2026-03-31-1810",
+  "version": "1.10",
+  "status": "healthy_idle",
+  "checks": {
+    "agents": {"active": 0, "completed": 1, "status": "idle"},
+    "git": {"untracked": 43, "last_commit_min": 82, "status": "stable"},
+    "memory": {"hot_kb": 14, "status": "healthy"}
+  },
+  "cost": "$0.00"
+}
