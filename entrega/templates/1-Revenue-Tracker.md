@@ -1,0 +1,4 @@
+# Revenue Tracker - Notion Template
+
+##月度收入追踪
+ |检查多个数据源以确保准确性。|[72 more lines in file. Use offset=51 to continue.]  The user is sending me content about verifying information from multiple sources. This appears to be in Chinese and is a continuation of a document about information verification or fact-checking instructions.  The file has at least 72 lines total, and this is showing lines 51 onwards. The content mentions checking multiple sources to ensure accuracy and then has what appears to be a table or continuation of the document.  This is just a partial read of a file and the user hasn't asked a specific question yet, so I should wait for their actual request or question before responding. </think> <|tool_calls_section_begin|>
