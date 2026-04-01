@@ -4,8 +4,6 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Relay Labs - Sistema de Agentes IA</title>
-  <!-- Analytics: Plausible (privacy-friendly) - Configure domain -->
-  <script defer data-domain="alfredcamher.github.io" src="https://plausible.io/js/script.js"></script>
  <meta name="description" content="Aprende a construir un negocio con agentes IA que operan 24/7. Framework probado + Stack HKUDS.">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -340,7 +338,7 @@
  <span class="price-original">$250</span>
  <span class="price-now">$39 USD</span>
  </div>
- <a href="https://buy.stripe.com/aFabJ28NrfiHdFl3jfcMM00" class="btn" data-analytics="checkout-click">Comprar Ahora →</a>
+ <a href="https://buy.stripe.com/aFabJ28NrfiHdFl3jfcMM00" class="btn">Comprar Ahora →</a>
  <div class="guarantee">🛡️ Garantía 30 días de devolución | Soporte por email</div>
  </div>
  </section>
@@ -425,7 +423,7 @@
  <span class="price-original">$250</span>
  <span class="price-now">$39 USD</span>
  </div>
- <a href="https://buy.stripe.com/aFabJ28NrfiHdFl3jfcMM00" class="btn" data-analytics="checkout-click">Comprar Ahora →</a>
+ <a href="https://buy.stripe.com/aFabJ28NrfiHdFl3jfcMM00" class="btn">Comprar Ahora →</a>
  <div class="guarantee">Contacto: <a href="mailto:alfredcamher@gmail.com">alfredcamher@gmail.com</a></div>
  </div>
  </section>
@@ -462,13 +460,5 @@
  <p>¿Preguntas? <a href="mailto:alfredcamher@gmail.com">Escríbeme</a></p>
  </div>
  </footer>
-<!-- Plausible Goal Tracking -->
-<script>
-  document.querySelectorAll("[data-analytics=checkout-click]").forEach((element) => {
-    element.addEventListener("click", () => {
-      if (typeof plausible !== "undefined") plausible("Checkout Click");
-    });
-  });
-</script>
 </body>
 </html>
