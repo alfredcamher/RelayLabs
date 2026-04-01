@@ -15,11 +15,12 @@
 - **Criterio éxito:** Hooks pegajosos, storytelling, CTA claro - ✅ ALCANZADO
 - **Resumen:** Thread de 5 tweets con progresión problem→solution→proof→CTA, listo para publicar
 
-### H2: Newsletter - Weekly Dispatch #1
+### H2: Newsletter - Weekly Dispatch #1 ✅ COMPLETED
 - **Tarea:** Draft newsletter "De $0 a $1M: El framework de agentes"
-- **Estado:** ⏳ PENDIENTE
+- **Estado:** ✅ COMPLETED - 2026-04-01 04:20 CDT (cron cycle #1 autónomo)
 - **Output:** `/content/newsletters/dispatch-001.md`
-- **Criterio éxito:** Value real, storytelling, CTA al producto
+- **Criterio éxito:** Value real, storytelling, CTA al producto - ✅ ALCANZADO
+- **Resumen:** 120+ lineas, estructura completa (hook → problem → solution → proof → CTA), listo para enviar
 
 ### H3: PDF Product - Compilar Guía
 - **Tarea:** Unificar documentos existentes en PDF entregable
