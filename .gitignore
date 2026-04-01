@@ -1,0 +1,64 @@
+# Private Repository - CEO Autonomo
+# DO NOT COMMIT sensitive files
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Credentials
+*.key
+*.pem
+*.crt
+credentials/
+config/secrets*
+
+# Stripe
+stripe/secrets*
+webhook-secret.txt
+
+# API Keys
+*_api_key*
+*API_KEY*
+*TOKEN*
+
+# Notes with passwords
+*password*
+*secret*
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Large files
+*.zip
+*.tar.gz
+*.mp4
+*.mov
+
+# Specific to this project
+# (Add any sensitive patterns here)

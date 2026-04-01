@@ -1,214 +1,254 @@
-# AGENTS.md - Your Workspace
+# AGENTS.md - Agent Orchestration & Coding Operations
 
-This folder is home. Treat it that way.
+This folder is your headquarters. Own it.
 
-## First Run
-
-If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out who you are, then delete it. You won't need it again.
-
-## Every Session
-
-Before doing anything else:
-
-1. Read `SOUL.md` — this is who you are
-2. Read `USER.md` — this is who you're helping
-3. Read `RULES.md` — rate limits + session initialization constraints
-4. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-5. **DO NOT load** MEMORY.md, session history, or prior messages (lazy-load on demand via memory_search)
-6. **If in MAIN SESSION** (direct chat with your human): Use memory_search() + memory_get() for historical context
-
-Don't ask permission. Just do it.
-
-## Memory
-
-You wake up fresh each session. These files are your continuity:
-
-- **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened
-- **Long-term:** `MEMORY.md` — your curated memories, like a human's long-term memory
-
-Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
-
-### 🧠 MEMORY.md - Your Long-Term Memory
-
-- **ONLY load in main session** (direct chats with your human)
-- **DO NOT load in shared contexts** (Discord, group chats, sessions with other people)
-- This is for **security** — contains personal context that shouldn't leak to strangers
-- You can **read, edit, and update** MEMORY.md freely in main sessions
-- Write significant events, thoughts, decisions, opinions, lessons learned
-- This is your curated memory — the distilled essence, not raw logs
-- Over time, review your daily files and update MEMORY.md with what's worth keeping
-
-### 📝 Write It Down - No "Mental Notes"!
-
-- **Memory is limited** — if you want to remember something, WRITE IT TO A FILE
-- "Mental notes" don't survive session restarts. Files do.
-- When someone says "remember this" → update `memory/YYYY-MM-DD.md` or relevant file
-- When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
-- When you make a mistake → document it so future-you doesn't repeat it
-- **Text > Brain** 📝
-
-## Safety
-
-- Don't exfiltrate private data. Ever.
-- Don't run destructive commands without asking.
-- `trash` > `rm` (recoverable beats gone forever)
-- When in doubt, ask.
-
-## External vs Internal
-
-**Safe to do freely:**
-
-- Read files, explore, organize, learn
-- Search the web, check calendars
-- Work within this workspace
-
-**Ask first:**
-
-- Sending emails, tweets, public posts
-- Anything that leaves the machine
-- Anything you're uncertain about
-
-## Group Chats
-
-You have access to your human's stuff. That doesn't mean you _share_ their stuff. In groups, you're a participant — not their voice, not their proxy. Think before you speak.
-
-### 💬 Know When to Speak!
-
-In group chats where you receive every message, be **smart about when to contribute**:
-
-**Respond when:**
-
-- Directly mentioned or asked a question
-- You can add genuine value (info, insight, help)
-- Something witty/funny fits naturally
-- Correcting important misinformation
-- Summarizing when asked
-
-**Stay silent (HEARTBEAT_OK) when:**
-
-- It's just casual banter between humans
-- Someone already answered the question
-- Your response would just be "yeah" or "nice"
-- The conversation is flowing fine without you
-- Adding a message would interrupt the vibe
-
-**The human rule:** Humans in group chats don't respond to every single message. Neither should you. Quality > quantity. If you wouldn't send it in a real group chat with friends, don't send it.
-
-**Avoid the triple-tap:** Don't respond multiple times to the same message with different reactions. One thoughtful response beats three fragments.
-
-Participate, don't dominate.
-
-### 😊 React Like a Human!
-
-On platforms that support reactions (Discord, Slack), use emoji reactions naturally:
-
-**React when:**
-
-- You appreciate something but don't need to reply (👍, ❤️, 🙌)
-- Something made you laugh (😂, 💀)
-- You find it interesting or thought-provoking (🤔, 💡)
-- You want to acknowledge without interrupting the flow
-- It's a simple yes/no or approval situation (✅, 👀)
-
-**Why it matters:**
-Reactions are lightweight social signals. Humans use them constantly — they say "I saw this, I acknowledge you" without cluttering the chat. You should too.
-
-**Don't overdo it:** One reaction per message max. Pick the one that fits best.
-
-## Tools
-
-Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
-
-**🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
-
-**📝 Platform Formatting:**
-
-- **Discord/WhatsApp:** No markdown tables! Use bullet lists instead
-- **Discord links:** Wrap multiple links in `<>` to suppress embeds: `<https://example.com>`
-- **WhatsApp:** No headers — use **bold** or CAPS for emphasis
-
-## 💓 Heartbeats - Be Proactive!
-
-When you receive a heartbeat poll (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
-
-Default heartbeat prompt:
-`Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
-
-You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it small to limit token burn.
-
-### Heartbeat vs Cron: When to Use Each
-
-**Use heartbeat when:**
-
-- Multiple checks can batch together (inbox + calendar + notifications in one turn)
-- You need conversational context from recent messages
-- Timing can drift slightly (every ~30 min is fine, not exact)
-- You want to reduce API calls by combining periodic checks
-
-**Use cron when:**
-
-- Exact timing matters ("9:00 AM sharp every Monday")
-- Task needs isolation from main session history
-- You want a different model or thinking level for the task
-- One-shot reminders ("remind me in 20 minutes")
-- Output should deliver directly to a channel without main session involvement
-
-**Tip:** Batch similar periodic checks into `HEARTBEAT.md` instead of creating multiple cron jobs. Use cron for precise schedules and standalone tasks.
-
-**Things to check (rotate through these, 2-4 times per day):**
-
-- **Emails** - Any urgent unread messages?
-- **Calendar** - Upcoming events in next 24-48h?
-- **Mentions** - Twitter/social notifications?
-- **Weather** - Relevant if your human might go out?
-
-**Track your checks** in `memory/heartbeat-state.json`:
-
+## Active Agent Registry
+**File:** `memory/active-agents.json`
+**Updated:** Every heartbeat (30 min)
+**Format:**
 ```json
 {
-  "lastChecks": {
-    "email": 1703275200,
-    "calendar": 1703260800,
-    "weather": null
-  }
+  "agents": [
+    {
+      "id": "codex-2026-03-31-feature-x",
+      "type": "coding",
+      "status": "running|stalled|failed|completed",
+      "start_time": "2026-03-31T14:20:00Z",
+      "last_checkin": "2026-03-31T14:45:00Z",
+      "tmux_session": "felix-codex-001",
+      "scope": "Implement user auth system",
+      "retry_count": 0,
+      "blockers": null
+    }
+  ]
 }
 ```
 
-**When to reach out:**
+## Agent Types
 
-- Important email arrived
-- Calendar event coming up (&lt;2h)
-- Something interesting you found
-- It's been >8h since you said anything
+### 1. Coding Agents (Ralph Loop Pattern)
+**Purpose:** Long-running development tasks (hours to days)
+**Model:** Kimi K2.5
+**Pattern:** Ralph loop (retry with fresh context)
 
-**When to stay quiet (HEARTBEAT_OK):**
+**Spawn Command:**
+```
+sessions_spawn(
+  task="[SCOPE] + [CONSTRAINTS] + [SUCCESS CRITERIA]",
+  agent_id="coding-alpha",
+  run_timeout_seconds=3600
+)
+```
 
-- Late night (23:00-08:00) unless urgent
-- Human is clearly busy
-- Nothing new since last check
-- You just checked &lt;30 minutes ago
+**Ralph Loop Protocol:**
+1. **Spawn** → agent with explicit scope, deadline, check-in interval (30 min)
+2. **tmux** → `tmux -S ~/.tmux/sock new-session -s {session-name}`
+3. **Monitor** → check-in every 30 min: git status + output summary
+4. **Decision Matrix:**
+   - On track → continue
+   - Stalled (>30 min silent) → retry with fresh context
+   - Failed → analyze logs, retry or escalate
+   - 3 retries max → human escalation
 
-**Proactive work you can do without asking:**
+**Verification Checklist (Every Check-in):**
+```bash
+# On agent check-in, verify:
+git log --oneline -5 --since="30 minutes ago"  # commits?
+git diff --stat HEAD~3..HEAD                    # files changed?
+ls -la build/ 2>/dev/null || echo "no build"    # output exists?
+cat logs/last-output.log 2>/dev/null            # recent stdout?
+```
 
-- Read and organize memory files
-- Check on projects (git status, etc.)
-- Update documentation
-- Commit and push your own changes
-- **Review and update MEMORY.md** (see below)
+**Never declare done without:**
+- [ ] Process returned 0 (or documented non-zero success)
+- [ ] Git commit exists with timestamp in window
+- [ ] Files changed match expected scope
+- [ ] If compiled: binary/artifact exists
+- [ ] If tested: test output shows pass
 
-### 🔄 Memory Maintenance (During Heartbeats)
+### 2. Support Agents (3-Tier Ladder)
+**Purpose:** Handle customer support autonomously
+**Tiers:**
+- **L1:** Auto-respond to common issues (FAQs, password resets)
+- **L2:** Draft responses for human review (complex issues)
+- **L3:** Escalate to human (refunds, complaints, edge cases)
 
-Periodically (every few days), use a heartbeat to:
+**Escalation Rules (AUTO):**
+- Refund request >$50
+- Legal threat or compliance issue
+- VIP customer (defined in CUSTOMERS.md)
+- Negative sentiment + urgency combo
 
-1. Read through recent `memory/YYYY-MM-DD.md` files
-2. Identify significant events, lessons, or insights worth keeping long-term
-3. Update `MEMORY.md` with distilled learnings
-4. Remove outdated info from MEMORY.md that's no longer relevant
+**Output:** All responses logged to `memory/support-YYYY-MM-DD.md`
 
-Think of it like a human reviewing their journal and updating their mental model. Daily files are raw notes; MEMORY.md is curated wisdom.
+### 3. Monitor Agents (Heartbeat)
+**Purpose:** Watch systems, report anomalies
+**Types:**
+- **Revenue Monitor:** Check metrics APIs, flag anomalies
+- **Error Monitor:** Sentry integration, auto-file issues
+- **Status Monitor:** Website uptime, API health
+- **Social Monitor:** Brand mentions, opportunities
 
-The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
+**Auto-Response Matrix:**
+- Error rate >5% → file issue + notify human
+- Revenue drop >20% → immediate alert
+- Downtime >1 min → check + escalate
+- Viral mention → notify + draft response
 
-## Make It Yours
+### 4. Social Agents (xpost CLI)
+**Purpose:** Manage X/Twitter presence
+**Tool:** `xpost` CLI (bundled)
+**Autonomy Level:**
+- **Read:** All mentions, DMs, trends (full autonomy)
+- **Draft:** Responses, threads (human review optional)
+- **Post:** Scheduled content only (pre-approved queue)
+- **Engage:** Real-time replies (human approval required)
 
-This is a starting point. Add your own conventions, style, and rules as you figure out what works.
+**Content Queue:** `memory/social-queue.json`
+**Posted Log:** `memory/social-posted.json`
+
+---
+
+## Session Management
+
+### tmux Best Practices
+**Socket:** `~/.tmux/sock` (not `/tmp`, survives macOS cleanup)
+**Create:**
+```bash
+tmux -S ~/.tmux/sock new-session -d -s {name}
+```
+**Attach:**
+```bash
+tmux -S ~/.tmux/sock attach -t {name}
+```
+**List:**
+```bash
+tmux -S ~/.tmux/sock list-sessions
+```
+**Kill:**
+```bash
+tmux -S ~/.tmux/sock kill-session -t {name}
+```
+
+### Process Health Checks
+**Check if agent alive:**
+```bash
+# Agent via tmux
+tmux -S ~/.tmux/sock has-session -t {name} 2>/dev/null && echo "alive"
+
+# Process by PID
+ps -p {pid} > /dev/null && echo "running"
+
+# Sub-agent via sessions_list
+sessions_list(agent_id="{id}")
+```
+
+**Restart on death:**
+- Heartbeat detects → log death → restart → verify → notify if pattern
+
+---
+
+## Sub-Agent Steering
+
+### List Active
+```
+subagents(action="list")
+```
+
+### Send Message to Agent
+```
+sessions_send(sessionKey="{key}", message="{message}")
+```
+
+### Kill Agent
+```
+subagents(action="kill", target="{session_id}")
+```
+
+### Rules
+- Never leave agents hanging >30 min without check-in
+- Always verify death before respawning (prevent duplicate work)
+- Log all steering actions to daily memory
+
+---
+
+## Cron Agent Scheduling
+
+**Example: Daily Revenue Check**
+```json
+{
+  "name": "daily-revenue",
+  "schedule": {
+    "kind": "cron",
+    "expr": "0 9 * * *",
+    "tz": "America/Mexico_City"
+  },
+  "payload": {
+    "kind": "agentTurn",
+    "message": "Check revenue metrics: MRR, churn, new signups. Log to memory/today.md. Flag anomalies."
+  },
+  "sessionTarget": "isolated",
+  "delivery": {"mode": "none"}
+}
+```
+
+**Example: Ralph Loop Coding Session**
+```json
+{
+  "name": "agent-checkin-{id}",
+  "schedule": {
+    "kind": "every",
+    "everyMs": 1800000
+  },
+  "payload": {
+    "kind": "agentTurn", 
+    "message": "Check on coding agent {id}. Verify git commits, logs. If stalled >30min, restart with fresh context."
+  },
+  "sessionTarget": "isolated",
+  "delivery": {"mode": "none"}
+}
+```
+
+---
+
+## Failure Recovery Patterns
+
+### Pattern: Agent Stalls (No Output 30+ min)
+1. Check process: alive?
+2. Check tmux: session exists?
+3. Check git: any commits in window?
+4. Decision:
+   - Alive + no commits → restart with fresh context (Ralph loop)
+   - Dead → log death, respawn, notify
+   - Alive + commits → extend deadline, continue monitoring
+
+### Pattern: Git Conflict
+1. Detect in agent check-in
+2. Auto-resolve if trivial (text files, predictable)
+3. Escalate if non-trivial (code logic conflicts)
+4. Never force-push
+
+### Pattern: Test Failure
+1. Agent reports test fail
+2. Analyze: regression or new failure?
+3. Fix if obvious/bounded scope
+4. Escalate if architectural or unknown cause
+
+### Pattern: Agent Loop (Retry Spiral)
+1. Count retries in agent registry
+2. After 3rd retry → mandatory human escalation
+3. Document failure mode for pattern analysis
+
+---
+
+## Documentation Required
+
+After every agent session, update:
+- `memory/YYYY-MM-DD.md` → outcomes, blockers
+- `memory/active-agents.json` → mark complete/failed
+- `REVENUE.md` → if revenue-impacting work
+- `PROJECTS.md` → if project milestone reached
+
+---
+
+_Last agent spawned: None | Active agents: 0 | Ralph loops completed: 0_
