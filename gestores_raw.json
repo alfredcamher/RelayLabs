@@ -1,0 +1,134 @@
+{
+  "batch": 1,
+  "timestamp": "2026-02-19T18:25:00Z",
+  "total_contacts": 60,
+  "contacts": [
+    {
+      "name": "Gestores en México",
+      "phone": "5593728387",
+      "whatsapp": "5527189072",
+      "email": "contacto@gestoresenmexico.com",
+      "location": "Huatusco 25 oficina 202, Roma Sur, CDMX",
+      "services": "Trámites administrativos SEGOB SRE SEP Registro Público",
+      "source_url": "https://www.gestoresenmexico.com/"
+    },
+    {
+      "name": "Martín Flores Dosal (EME Gestiones)",
+      "whatsapp": "5526530527",
+      "location": "CDMX",
+      "services": "Gestoría México y España",
+      "source_url": "https://emegestiones.com.mx/"
+    },
+    {
+      "name": "Goparken",
+      "whatsapp": "55529618887",
+      "location": "CDMX/EdoMex/Morelos",
+      "services": "Gestoría vehicular reposición tarjeta circulación",
+      "source_url": "https://goparken.com/"
+    },
+    {
+      "name": "Gestoría Vehicular CDMX",
+      "email": "ventas@gestoriavehicularcdmx.com.mx",
+      "location": "CDMX/EdoMex/Morelos",
+      "services": "Cambio placas reemplacamiento trámites autos antiguos",
+      "source_url": "https://gestoriavehicularcdmx.com.mx/"
+    },
+    {
+      "name": "Un Mundo de Trámites",
+      "location": "CDMX",
+      "services": "Apostillas certificados legalizaciones constancias divorcios gestoría",
+      "source_url": "https://unmundodetramites.com/"
+    },
+    {
+      "name": "TRANSFER HABER TRASLADOS",
+      "whatsapp": "5215549815032",
+      "location": "Coyoacán DF",
+      "services": "Traslados gestoría",
+      "source_url": "https://www.seccionamarilla.com.mx/"
+    },
+    {
+      "name": "FACILE GESTORÍA",
+      "location": "Naucalpan EdoMex",
+      "services": "Gestoría",
+      "source_url": "https://www.seccionamarilla.com.mx/"
+    },
+    {
+      "name": "GVS GESTORÍAS Y VERIFICACIONES DEL SUR",
+      "location": "Coyoacán DF",
+      "services": "Gestoría verificaciones",
+      "source_url": "https://www.seccionamarilla.com.mx/"
+    },
+    {
+      "name": "Gestión Vehicular Profesional (GVPE)",
+      "phone": "5521209365",
+      "whatsapp": "5571973783",
+      "email": "contacto@gestoriaprofesional.mx",
+      "location": "Condesa Cuauhtémoc CDMX",
+      "services": "Verificación vehicular alta baja placas refrendo",
+      "source_url": "https://www.gestoriaprofesional.mx/"
+    },
+    {
+      "name": "MI GESTOR PRO",
+      "location": "CDMX",
+      "services": "Licencias construcción permisos proyectos arquitectónicos",
+      "source_url": "https://migestorpro.com.mx/"
+    },
+    {
+      "name": "ARGE CONSULTING SERVICES",
+      "whatsapp": "5552566003",
+      "phone": "5552119748",
+      "email": "argeconsulting@grupoarge.com",
+      "location": "Hipódromo Cuauhtémoc CDMX",
+      "services": "Consultoría mejora continua logística calidad",
+      "source_url": "https://www.dirind.com/dsi/gestion-empresarial1.html"
+    },
+    {
+      "name": "SOCIO ESTRATÉGICO EN GESTIÓN HUMANA E&B",
+      "location": "Huixquilucan EdoMex",
+      "services": "Gestoría RH nómina IMSS SAT INFONAVIT STPS",
+      "source_url": "https://www.dirind.com/"
+    },
+    {
+      "name": "Trámites CDMX (tramitescdmx.com)",
+      "location": "CDMX",
+      "services": "Licencias construcción permisos demolición estudios impacto",
+      "source_url": "https://tramitescdmx.com/"
+    },
+    {
+      "name": "Roma Gestoría y Construcciones S.C.",
+      "location": "CDMX",
+      "services": "Trámites administrativos apertura negocios avalúos licencias construcción",
+      "source_url": "https://romagestoria.com/"
+    },
+    {
+      "name": "LANFE Gestoría y Avalúos",
+      "location": "CDMX",
+      "services": "Avalúos predial sacmex trámites alcaldías protección civil",
+      "source_url": "https://lanfegestoriayavaluos.com/"
+    },
+    {
+      "name": "Rommart Consultoría (tramitepermisogestor.com)",
+      "location": "CDMX",
+      "services": "Licencia funcionamiento uso suelo protección civil cofepris",
+      "source_url": "https://tramitepermisogestor.com"
+    },
+    {
+      "name": "GestoAuto",
+      "phone": "5590635429",
+      "whatsapp": "5552961887",
+      "email": "contacto@gestoauto.com",
+      "location": "CDMX/Morelos",
+      "services": "Gestoría vehicular alta baja placas refrendo verificación",
+      "source_url": "https://gestoauto.com/"
+    },
+    {
+      "name": "Gestores Asociados CDMX (Herrera Gestiones)",
+      "phone": "5522613663",
+      "email": "gestoriahinojosa@gmail.com",
+      "location": "CDMX",
+      "services": "Trámites permisos construcción usos suelo",
+      "source_url": "https://www.facebook.com/herreragestiones/"
+    }
+  ],
+  "notes": "First 18 unique contacts extracted. Need to continue searching for more directories and websites to reach 50+ contacts goal. Sources: SeccionAmarilla, dirind.com, individual gestor websites, Facebook, Brave Search results."
+}

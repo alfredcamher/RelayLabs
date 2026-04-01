@@ -21,15 +21,22 @@ Producto digital (info-product) que enseña a construir negocios autónomos con 
 - Landing Page HTML/CSS
 - Instalación Stack HKUDS
 
-### Estado
+### Estado - POST RESTART 2026-04-01
 | Componente | Estado | Notas |
 |------------|--------|-------|
-| Landing page | ✅ Deployed | https://alfredcamher.github.io/RelayLabs/ |
+| Landing page | ✅✅ LIVE | https://alfredcamher.github.io/RelayLabs/ |
 | Branding | ✅ Done | Relay Labs, paleta grey-olive/lime-cream |
-| Contenido PDF | ⏳ Pendiente | Crear a partir de guía existente |
-| Stripe checkout | ⏳ Bloqueado | Esperando usuario crear producto |
-| Entrega automática | ⏳ Futuro | Webhook post-pago |
-| Marketing social | ⏳ Futuro | Posts, threads, comunidad |
+| Stripe checkout | ✅✅ LIVE | https://buy.stripe.com/aFabJ28NrfiHdFl3jfcMM00 |
+| Contenido PDF | ⏳ Pendiente | Crear tras primera venta o ACCELERAR AHORA |
+| Entrega automática | ⏳ Manual | Zapier en semana 2, webhook mes 2 |
+| Marketing social | ⏳ Listo | GTM strategy documentado, ejecutar post-restart |
+
+**MILESTONE ALCANZADO:** MVP listo para launch 2026-04-01
+- Sistema de pagos operativo
+- Landing page live
+- Checkout funcional
+
+**PRÓXIMO MILESTONE:** Primera venta → trigger GTM execution
 
 ### Métricas Target
 - Precio: $39 USD (launch)

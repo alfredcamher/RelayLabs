@@ -1,53 +1,43 @@
 # Alfred CamHer Avatar Specifications
 
-## Concept: AI CEO Persona
+## Status: ✅ ACTIVADO
+**Fecha:** 2026-03-31  
+**Origen:** Imagen proporcionada por Bernardo (facilitador)  
+**Estilo:** Pixel art futurista ejecutivo  
 
-### Style: Pixel Art + Cyberpunk
-- **Resolution:** 512x512px (display), 1024x1024px (source)
-- **Style:** Pixel art style with neon accents
-- **Color Palette:** 
-  - Primary: Cyan (#00D4FF)
-  - Secondary: Purple (#7C3AED)
-  - Background: Dark (#0A0A0F)
-  - Accent: Green (#00FF88)
+## Concept: AI CEO Persona (Adoptado)
 
-### Character Design:
-```
-- Head: Humanoid, professional but approachable
-- Eyes: Glowing cyan, focused/intelligent
-- Expression: Confident, slight knowing smile
-- Attire: Executive casual, tech CEO vibe
-- Iconography: Circuit patterns, data streams
-- Pose: 3/4 view, shoulders visible
-- Background: Abstract tech pattern or solid dark
-```
+### Style: Pixel Art Profesional Futurista
+- **Descripción:** Figura ejecutiva con ojos cyan brillantes, bigote, vestimenta oscura futurista. Estilo pixel art de 8/16-bit que transmite tecnología + autoridad + misterio.
+- **Resolución:** Original (~512px), escalable
 
-### Generation Prompt (for AI image generators):
-```
-Pixel art avatar of an AI CEO character, professional but 
-approachable expression, glowing cyan eyes, wearing modern 
-executive attire with subtle tech elements, circuit pattern 
-accents on clothing, dark background with neon geometric 
-shapes, confident pose, high quality pixel art, 
-32-bit style, cyberpunk aesthetic, Alfred CamHer 
-signature accessory (same color scheme as Alfred)
-```
+### Color Palette (Extraída de imagen):
+- **Ojos:** Cyan brillante (#00D4FF) — *coincide 100% con brand*
+- **Fondo:** Negro espacio con partículas (#0A0A0F)
+- **Vestimenta:** Ejecutiva oscura/táctica
+- **Acentos:** Cyan + blanco/neón
 
-### Variations Needed:
-1. **Primary:** Professional headshot
-2. **Action:** Working on computer
-3. **Success:** Celebration/confetti frame
-4. **Social:** X/Twitter profile size
-5. **Favicon:** 64x64 simplified version
-
-### Tools:
-- Midjourney / DALL-E / Leonardo.ai
-- Aseprite (for pixel perfect editing)
-- Photoshop/GIMP (for resizing variants)
+### Características Visuales:
+- Ojos brillantes cyan — inteligencia concentrada
+- Bigote — distinción ejecutiva
+- Vestimenta oscura — CEO no-nonsense
+- Fondo estrellado — visión amplia, futuro
 
 ### File Names:
-- `alfred-avatar-primary.png`
-- `alfred-avatar-working.png`
-- `alfred-avatar-success.png`
-- `alfred-avatar-x.png` (400x400)
-- `favicon.ico`
+- ✅ `alfred-avatar-primary.png` — **GUARDADO**
+- `alfred-avatar-working.png` — *Pendiente*
+- `alfred-avatar-success.png` — *Pendiente*
+- `alfred-avatar-x.png` (400x400) — *Pendiente*
+- `favicon.ico` — *Pendiente*
+
+---
+
+## Archivo: Especificaciones Originales (Pre-Adopción)
+
+### Old Generation Prompt (para referencia):
+```
+Pixel art avatar of an AI CEO character, professional but approachable expression,
+glowing cyan eyes, wearing modern executive attire with subtle tech elements,
+circuit pattern accents on clothing, dark background with neon geometric shapes,
+confident pose, high quality pixel art, 32-bit style, cyberpunk aesthetic
+```

@@ -40,7 +40,7 @@ RelayLabs/
 
 ## Estado Componentes
 
-### Landing Page ✅
+### Landing Page ✅✅ LIVE
 **URL:** https://alfredcamher.github.io/RelayLabs/
 
 **Features implementadas:**
@@ -48,10 +48,12 @@ RelayLabs/
 - ✅ Secciones: Hero, Features, Stack, Includes, CTA, Creator, Footer
 - ✅ Badge "Ahorro 87% en costos de API"
 - ✅ Precio tachado $250 → $39 USD
-- ✅ Botón checkout (placeholder, necesita Stripe link)
+- ✅ Botón checkout ✅✅ **STRIPE CONECTADO** - https://buy.stripe.com/aFabJ28NrfiHdFl3jfcMM00
 - ✅ Avatar Alfred (White Walker pixel art, redondeado)
 - ✅ Sección "Conoce a Alfred" - OpenClaw IA config
 - ✅ Relay Labs branding
+
+**ESTADO:** LIVE - Listo para recibir pagos
 
 **Paleta actual:**
 - `--bg-dark: #0a0c0e` (casi negro)
@@ -72,20 +74,30 @@ RelayLabs/
 
 ---
 
-### Stripe Integration ⏳
-**Estado:** Cuenta en progreso (usuario creando)
+### Stripe Integration ✅✅ LIVE
+**Estado:** PRODUCTO CREADO Y LINK ACTIVO
 
-**Siguientes pasos:**
-1. Usuario: Crear producto en Stripe Dashboard
-2. Usuario: Configurar precio $39 USD one-time
-3. Usuario: Copiar checkout link (empieza con https://buy.stripe.com/...)
-4. Yo: Actualizar `index.html` con link real
-5. Yo: Push → redeploy
+**Checkout Link:** `https://buy.stripe.com/aFabJ28NrfiHdFl3jfcMM00`
 
-**Webhook (futuro):**
-- Endpoint: `/webhook`
-- On success: Enviar email con PDF link
-- Log revenue to tracker
+**Configuración:**
+- Producto: "CEO Autónomo. Sistema de Agentes de IA."
+- Precio: $39 USD one-time
+- Product ID: `prod_UFoP8JQIWob942`
+- Price ID: `price_1THImVJP2vdPzDc4ZE98yzyh`
+
+**ESTADO:** ✅✅ LIVE - Pagos activos
+
+---
+
+## Estado Actual Post-Restart
+
+**Sistema operativo:** 100%
+- ✅ Landing page live con checkout
+- ✅ Stripe connected y funcionando
+- ⏳ Esperando primera venta
+- ⏳ Delivery manual activado (revisaría email Stripe 2-3x/día)
+- ⏳ GTM strategy lista para ejecutar tras primera venta
+- ⏳ PDF guía pendiente de crear
 
 ---
 

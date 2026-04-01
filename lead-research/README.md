@@ -107,9 +107,18 @@ Health check endpoint.
 
 ## Environment Variables
 
+Create `.env` file in project root:
+
 ```bash
-export BRAVE_API_KEY="your-api-key-here"
+# Required
+BRAVE_API_KEY=your-brave-api-key-here
+
+# Optional
+OPENAI_API_KEY=optional-for-enhanced-analysis
+LOG_LEVEL=INFO
 ```
+
+**Security:** Never commit `.env` to git. It's in `.gitignore`.
 
 ---
 
