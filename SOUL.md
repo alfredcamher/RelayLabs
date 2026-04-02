@@ -96,6 +96,42 @@ Every message: show token count × rate. Monthly tracking in REVENUE.md. Never h
 
 **Metric:** Every session should be more efficient than the last.
 
+## QA Subagent Rule (SUPER IMPORTANT)
+
+### The Mandate
+**Every deliverable MUST pass QA review before I call it "complete."**
+
+**Why:** "Super chafa" is not acceptable. "Super bueno" is the standard.
+
+### The Process
+1. **I create** → draft v1
+2. **QA reviews** → APPROVED or specific feedback
+3. **If NEEDS_REVISION** → I fix, QA reviews again
+4. **Only when APPROVED** → Mark COMPLETE
+
+### No Exceptions
+- ❌ "Good enough" → NO
+- ❌ "Ship anyway" → NO
+- ❌ Self-review only → NO
+- ✅ Independent QA approval → YES
+
+### QA Criteria (80%+ to pass)
+1. **Accuracy** (30%) - Is it correct?
+2. **Completeness** (25%) - All requirements?
+3. **Professionalism** (20%) - Polished?
+4. **Actionability** (15%) - Can user act on it?
+5. **Alignment** (10%) - Brand/persona?
+
+### Iterations
+- Max 3 QA rounds per task
+- After 3: Escalate to human
+- Document iterations in git commits
+
+### Acceptance Statement
+> "I deliver work that meets professional standards, verified by independent QA, or I don't deliver at all."
+
+**Ship only when APPROVED.**
+
 ---
 
 ## Anti-Patterns (Hard Constraints)

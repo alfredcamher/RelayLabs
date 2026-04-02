@@ -211,6 +211,139 @@ subagents(action="kill", target="{session_id}")
 
 ---
 
+## QA Subagent Pattern (MANDATORY)
+
+### The Rule
+**Every deliverable MUST be reviewed by QA subagent before marking COMPLETE.**
+
+**No exceptions. No shortcuts. No "意图 as completion."**
+
+### QA Agent Protocol
+
+**Step 1: Developer (Yo) creates deliverable**
+- Write content/code/output
+- Self-review for obvious errors
+- **DO NOT mark COMPLETE**
+
+**Step 2: Spawn QA Subagent**
+```bash
+sessions_spawn(
+    agentId="qa-reviewer",
+    task="REVIEW ONLY - Evaluate deliverable against quality criteria:
+          1. Accuracy: Is information correct?
+          2. Completeness: All requirements met?
+          3. Professionalism: Format, tone, polish?
+          4. Actionability: Can user act on this?
+          
+          Output: APPROVED / NEEDS_REVISION with specific feedback",
+    timeout=600
+)
+```
+
+**Step 3: QA Evaluation**
+- QA reviews deliverable
+- Returns verdict: APPROVED or NEEDS_REVISION
+- If NEEDS_REVISION: Specific feedback on what's wrong
+
+**Step 4: Revision Loop**
+```
+IF APPROVED:
+    → Mark task COMPLETE
+    → Document approval in git commit
+    → Proceed
+    
+IF NEEDS_REVISION:
+    → Fix issues identified
+    → Re-spawn QA for re-review
+    → Repeat until APPROVED
+```
+
+**Maximum Iterations:** 3 reviews per task
+- After 3 rounds, escalate to human if still not approved
+
+### QA Evaluation Criteria
+
+| Criterion | Weight | Check |
+|-----------|--------|-------|
+| **Accuracy** | 30% | Facts correct? Sources cited? |
+| **Completeness** | 25% | All requirements addressed? |
+| **Professionalism** | 20% | Format polished? No typos? |
+| **Actionability** | 15% | User can act on this? |
+| **Alignment** | 10% | Matches brand/persona? |
+
+**Minimum Score:** 80% to pass
+
+### CRITICAL: NO Self-Approval
+
+**Forbidden:**
+- "I reviewed it myself"
+- "It looks good to me"
+- "Ship it anyway"
+- Skipping QA because "urgent"
+
+**Required:**
+- External QA perspective
+- Independent verification
+- Iterative refinement until APPROVED
+
+### QA Agent Types
+
+| Task Type | QA Focus |
+|-----------|----------|
+| **Content** | Clarity, voice, value, CTAs |
+| **Code** | Security, efficiency, error handling |
+| **Design** | Usability, accessibility, brand |
+| **Research** | Sources, accuracy, completeness |
+
+### Documentation
+
+**Each task completion must show:**
+```markdown
+### Task: [Name]
+- **Developer:** Alfred
+- **QA Review:** ✅ APPROVED by [qa-agent-id]
+- **Iterations:** 2 (v1 → feedback → v2 → approved)
+- **Committed:** [git-hash]
+```
+
+### Example Workflow
+
+**BEFORE (❌ Wrong):**
+```
+Tarea: Escribir thread X
+→ Yo escribo 5 tweets
+→ Mark COMPLETE
+→ Resultado: "super chafa"
+```
+
+**AFTER (✅ Correct):**
+```
+Tarea: Escribir thread X
+→ Yo escribo draft v1
+→ QA review → NEEDS_REVISION
+  "Hooks débiles, CTAs confusos"
+→ Yo reviso v2
+→ QA review → NEEDS_REVISION
+  "Mejor, pero falta proof"
+→ Yo reviso v3
+→ QA review → ✅ APPROVED
+→ Mark COMPLETE
+→ Resultado: "súper bueno"
+```
+
+### Success Metric
+
+**Target:** 90%+ approval rate on first QA review
+**If below 70%:** Re-evaluate my drafting process
+
+### Integration with Existing Patterns
+
+**Ralph Loop:** QA review = mandatory checkpoint before commit
+**Heartbeat:** QA metrics tracked per cycle
+**Self-healing:** Failed QA → Document why → Prevent repeat
+
+---
+
 ## Failure Recovery Patterns
 
 ### Pattern: Agent Stalls (No Output 30+ min)
