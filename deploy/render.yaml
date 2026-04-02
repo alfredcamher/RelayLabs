@@ -1,0 +1,74 @@
+# render.yaml - Render.com Blueprint for CEO Autónomo
+# Deploy with: https://render.com/deploy
+
+services:
+  # Web service for payment processing
+  - type: web
+    name: ceo-autonomo-payment
+    runtime: python
+    plan: free  # or starter/plus
+    
+    buildCommand: |
+      cd payment && pip install -r requirements.txt
+    
+    startCommand: |
+      cd payment && gunicorn -w 4 -b 0.0.0.0:$PORT stripe-checkout-server:app
+    
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      
+      - key: STRIPE_SECRET_KEY
+        sync: false  # Set in Render Dashboard
+      
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      
+      - key: STRIPE_PRICE_ID
+        sync: false
+      
+      - key: DOMAIN
+        value: https://ceo-autonomo-payment.onrender.com
+        # Change after custom domain setup
+      
+      - key: PRODUCT_URL
+        sync: false
+      
+      - key: EMAIL_PROVIDER
+        value: sendgrid
+      
+      - key: FROM_EMAIL
+        sync: false
+      
+      - key: SENDGRID_API_KEY
+        sync: false
+      
+      - key: FLASK_ENV
+        value: production
+    
+    healthCheckPath: /health
+    healthCheckTimeout: 100
+    
+    autoDeploy: true
+
+# Optional: Static site for landing page
+  - type: static
+    name: ceo-autonomo-landing
+    runtime: static
+    buildCommand: echo "Static site ready"
+    publish: marketing/
+    
+    envVars:
+      - key: CHECKOUT_URL
+        value: https://ceo-autonomo-payment.onrender.com
+    
+    routes:
+      - type: rewrite
+        source: /buy
+        destination: https://ceo-autonomo-payment.onrender.com
+
+# Disk for purchase logs (optional)
+disks:
+  - name: purchases-data
+    mountPath: /app/payment
+    sizeGB: 1

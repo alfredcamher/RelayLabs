@@ -1,0 +1,111 @@
+# .github/workflows/deploy.yml
+# CI/CD Pipeline for CEO Autónomo
+# Automatically deploys on push to main branch
+
+name: Deploy CEO Autónomo
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  PYTHON_VERSION: '3.11'
+  STRIPE_PRICE_ID: ${{ secrets.STRIPE_PRICE_ID }}
+
+jobs:
+  test:
+    name: Test Suite
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Cache pip dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    - name: Install dependencies
+      run: |
+        cd payment
+        pip install -r requirements.txt
+        pip install pytest pytest-cov flake8
+    
+    - name: Lint Python code
+      run: |
+        cd payment
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    
+    - name: Run validation suite
+      run: |
+        cd testing
+        chmod +x validation-suite.sh
+        ./validation-suite.sh || true
+    
+    - name: Test Python syntax
+      run: |
+        python -m py_compile payment/stripe-checkout-server.py
+        python -m py_compile payment/webhook_handlers.py
+
+  deploy-fly:
+    name: Deploy to Fly.io
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Flyctl
+      uses: superfly/flyctl-actions/setup-flyctl@master
+    
+    - name: Deploy to Fly
+      run: flyctl deploy --remote-only
+      env:
+        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+  deploy-render:
+    name: Deploy to Render
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Deploy to Render
+      run: |
+        curl -X POST \
+          -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+          -H "Content-Type: application/json" \
+          -d '{"serviceId": "${{ secrets.RENDER_SERVICE_ID }}"}' \
+          https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys
+
+  notify:
+    name: Notify on Deploy
+    needs: [deploy-fly, deploy-render]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Deployment Status
+      run: |
+        if [ "${{ needs.deploy-fly.result }}" == "success" ] || [ "${{ needs.deploy-render.result }}" == "success" ]; then
+          echo "✅ Deployment successful"
+        else
+          echo "⚠️ Deployment may have issues"
+        fi

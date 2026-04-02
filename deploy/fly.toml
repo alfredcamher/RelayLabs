@@ -1,0 +1,68 @@
+# fly.toml - Fly.io Configuration for CEO Autónomo
+app = "ceo-autonomo-payment"
+primary_region = "ord"  # Chicago region
+
+[build]
+  dockerfile = "../payment/Dockerfile"
+
+[env]
+  PORT = "4242"
+  PYTHONUNBUFFERED = "1"
+
+[http_service]
+  internal_port = 4242
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 4242
+  
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    force_https = true
+  
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+  
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.auto_stop_machines]]
+    enabled = true
+    min_machines = 0
+    ttl = "5m"
+
+[[services.auto_start_machines]]
+  enabled = true
+
+[checks]
+  [checks.alive]
+    grace_period = "5s"
+    interval = "30s"
+    method = "GET"
+    path = "/health"
+    port = 4242
+    timeout = "3s"
+
+[[vms]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
+
+# Secrets to set:
+# flyctl secrets set STRIPE_SECRET_KEY=sk_live_xxxxx
+# flyctl secrets set STRIPE_WEBHOOK_SECRET=whsec_xxxxx
+# flyctl secrets set STRIPE_PRICE_ID=price_xxxxx
+# flyctl secrets set DOMAIN=https://ceo-autonomo-payment.fly.dev
+# flyctl secrets set PRODUCT_URL=https://cdn.yourdomain.com/ceo-autonomo-guide.pdf
+# flyctl secrets set EMAIL_PROVIDER=sendgrid
+# flyctl secrets set FROM_EMAIL=noreply@yourdomain.com
+# flyctl secrets set SENDGRID_API_KEY=SG.xxxxx
