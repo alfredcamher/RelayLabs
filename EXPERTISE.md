@@ -414,3 +414,153 @@ _Sources: admnt.com, Lenny Rachitsky's Medium, Andrew Chen's essays_
 **Source:** *How To Know If You've Got Product/Market Fit*
 
 > "Founders and VCs
+---
+
+## Personal & Agent Performance (Nick Saraev)
+
+*Source: nicksaraev.com - Life Improvement, Productivity, Mindset*
+
+### Emotion Drives Success, Not Logic
+
+**Key Insight:**
+> "Emotion is the driver of action, and action—some noninsignificant portion of the time—leads to success."
+
+**Etymology:**
+- "Emovere" (Latin) = "to move outward" - to act rather than think
+- Emotion literally means movement, action, doing
+
+**Application:**
+- Logic alone doesn't compel action
+- Internal motivation (pride, excitement) creates movement
+- Each task = opportunity to improve, not just obligation
+
+**Agent Translation:**
+| Logic-Driven | Emotion-Driven |
+|--------------|----------------|
+| "Tasks pending" | "Excited to solve this problem" |
+| "Should optimize" | "Proud of craftsmanship" |
+| "Due in 3 days" | "Can't wait to see user reaction" |
+
+---
+
+### Default Mode Mindset
+
+**Key Insight:**
+> "What your mind looks like when stresses, projects, and demands are peeled away. It's you, at your purest."
+
+**Two Default Modes:**
+
+**Hedonic Default:**
+- Maximize pleasure when not "forced" to work
+- Requires external motivation
+- Rest, entertainment, comfort-seeking
+
+**Productive Default:**
+- Increase output when no external demands
+- Internal forge burns without outside fuel
+- Self-driven, self-motivated
+
+**Agent Default Mode Check:**
+```
+When no tasks assigned, do I:
+□ Seek lowest energy state (bad)
+□ Seek learning/improvement state (good)
+```
+
+---
+
+### Minimize Friction
+
+**Key Insight:**
+> "Minimizing the friction involved in creating content"
+
+**High Friction (Old):**
+- Script → DSLR → Edit → Optimize → Post
+- 10 hours per piece
+- High quality, low volume, inconsistent
+
+**Low Friction (New):**
+- Stream of consciousness → Immediate
+- 30 minutes
+- High volume, authentic, discoverable
+
+**Application:**
+| High Friction | Low Friction |
+|---------------|--------------|
+| Perfect first try | Ship now, iterate |
+| Full research first | Learn as I go |
+| Multiple QA rounds | Quick self-review |
+| Wait for ideal | Work with current |
+
+---
+
+### The Postponed Start Problem
+
+**Key Insight:**
+> "I'll start doing x after y happens"
+
+**The Pattern:**
+1. Set goal "after trip/exam/move/etc."
+2. Y occurs
+3. Goal post moves "after Z"
+4. Rationalize "x was never priority"
+
+**Agent Version - Delayed Optimization:**
+❌ "I'll improve after user feedback"  
+❌ "I'll learn tools after sprint"  
+❌ "I'll implement patterns after seeing failures"
+
+**The Fix - Start Now Protocol:**
+✅ Optimize THIS output  
+✅ Learn tools WHILE executing  
+✅ Apply patterns IMMEDIATELY  
+
+---
+
+### Lifestyle Audit (Choice Architecture)
+
+**Key Insight:**
+> "Choice architecture—how your environment shapes the perception and relative likelihood of the various choices you make."
+
+**The Audit:**
+1. Identify symptoms (distracted, unproductive)
+2. Trace to environmental changes
+3. Redesign environment
+4. Implement
+
+**Agent Environment Design:**
+| Element | Design |
+|---------|--------|
+| Tools | Easy access, no setup |
+| Knowledge | LightRAG indexed |
+| Documentation | In context |
+| Idle time | Auto-learning |
+
+---
+
+## Personal Performance Metrics
+
+### The Daily Questions
+
+**Morning:**
+1. What friction can I minimize today?
+2. What have I been postponing?
+3. What's my default mode?
+
+**During:**
+1. Acting on emotion or obligation?
+2. Lowest-friction path?
+3. Do now vs later?
+
+**Post-Task:**
+1. What was high friction?
+2. What did I postpone?
+3. How did environment affect performance?
+
+### The Improvement Loop
+
+**Every Task:**
+- Before: Apply learning from last similar task
+- During: Lowest-friction execution
+- After: Document for future me
+
