@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="$lang$">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="$author$">
+  <meta name="date" content="$date$">
+  
+  <title>$title$$if(subtitle)$ — $subtitle$$endif$</title>
+  
+  <!-- PDF Stylesheet -->
+  <link rel="stylesheet" href="styles-pdf.css" type="text/css">
+  
+  <style>
+    /* Document root styles */
+    html {
+      font-size: 12pt;
+      /* A4 size in inches for print */
+      width: 8.27in;
+      height: 11.69in;
+    }
+    
+    body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.6;
+      color: #2D3748;
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div class="chapter-number">$if(cover-number)$$cover-number$$else$✦$endif$</div>
+  
+  <h1>$title$</h1>
+  
+  <div class="cover-divider"></div>
+  
+  $if(subtitle)$
+  <p class="subtitle">$subtitle$</p>
+  $endif$
+  
+  <div class="cover-meta">
+    $if(author)$
+    <span class="cover-author">Autor: $author$</span>
+    $endif$
+    
+    $if(date)$
+    <span class="cover-date">$date$</span>
+    $endif$
+    
+    $if(version)$
+    <span class="cover-version">Versión $version$</span>
+    $endif$
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+$if(toc)$
+<div class="page-break-before"></div>
+<nav class="toc">
+  <h1>Tabla de Contenidos</h1>
+  $table-of-contents$
+</nav>
+$endif$
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+  $body$
+</div>
+
+<!-- BACK MATTER -->
+$if(back-matter)$
+<div class="page-break-before"></div>
+<div class="back-matter">
+  $back-matter$
+</div>
+$endif$
+
+</body>
+</html>

@@ -6,6 +6,24 @@
 
 ### HIGH (Critical Path)
 
+#### PDF v3.0 - CEO Autónomo Guía Maestra (Mejoramiento Completo)
+- **ID:** PDF-003
+- **Task:** Crear versión mejorada y expandida del PDF con:
+  1. **Research adicional:** Patrones de orquestación (Anthropic, Microsoft), arquitecturas empresariales, case studies
+  2. **Extensión:** ~200 páginas cubriendo estrategia + arquitectura + tutorial implementación
+  3. **Estilo Andrew Chen:** Redacción conversacional, data-driven, pattern-oriented, largo alcance
+  4. **Secciones:** El nuevo paradigma, fundamentos estratégicos, arquitectura de agentes, patrones avanzados, implementación semana a semana, operaciones 24/7, GTM, estudios de caso, troubleshooting, integraciones, templates
+- **Entregables:**
+  - Markdown maestro (~200 páginas equivalente)
+  - PDF generado con diseño profesional
+  - QA approval previo a publicación
+- **Spawns requeridos:**
+  1. QA Agent: Revisar contenido por calidad (accuracy, completeness, professionalism, actionability)
+  2. Design Agent: Crear diseño visual profesional para PDF
+- **Referencias a leer:** AGENTS.md, SOUL.md, EXPERTISE.md
+- **Status:** 🔄 IN PROGRESS - Draft inicial en progreso
+- **Blocked by:** Necesita QA y Design agents spawn
+
 #### PDF Generation for CEO Autónomo Product
 - **ID:** PDF-001
 - **Task:** Generate professional PDF from CEO-AUTONOMO-GUIA-COMPLETA.md
@@ -15,7 +33,7 @@
   2. Grant elevated permissions to Alfred for package install
   3. Use Playwright to print-to-PDF (fallback - less controlled)
 - **Created:** Script ready at `~/.openclaw/tools/run-pandoc-pdf.py`
-- **Status:** ⛔ WAITING
+- **Status:** ⛔ WAITING (Deprecated by PDF-003)
 
 #### Stripe Webhook Auto-Delivery
 - **ID:** WEB-001

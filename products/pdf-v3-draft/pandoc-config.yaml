@@ -1,0 +1,91 @@
+# Pandoc Configuration for CEO Autónomo: Guía Maestra PDF Generation
+# Usage: pandoc input.md --defaults=pandoc-config.yaml -o output.pdf
+
+# Input format
+from: markdown
+
+# Output format and settings
+to: pdf
+pdf-engine: weasyprint  # or: xelatex, lualatex (see alternatives)
+
+# Document metadata
+metadata:
+  title: "CEO Autónomo: Guía Maestra"
+  subtitle: "El Sistema de Agentes IA que Multiplica tu Productividad por 10x"
+  author: "Alfred CamHer"
+  date: "Abril 2026"
+  lang: "es"
+  version: "3.0"
+  cover-number: "✦"
+
+# Markdown extensions (what features to recognize)
+markdown-extensions:
+  - +smart                      # smart quotes, dashes, ellipses
+  - +header_attributes          # enable {#id .class}
+  - +fenced_code_blocks         # ``` code blocks
+  - +footnotes                  # [^1] footnote syntax
+  - +definition_lists           # term : definition
+  - +table_captions             # table captions
+  - +strikeout                  # ~~strikethrough~~
+  - +superscript                # super^script^
+  - +subscript                  # sub~script~
+  - +emoji                      # emoji rendering
+  - +bracketed_spans            # [text]{.class}
+
+# Template and CSS
+template: pandoc-template.html
+css: styles-pdf.css
+
+# Table of Contents
+toc: true
+toc-depth: 3
+number-sections: false      # Don't auto-number sections; keep manual control
+
+# Typography and spacing
+variables:
+  documentclass: article
+  fontsize: 11pt
+  linestretch: 1.6
+  colorlinks: true
+  urlcolor: "#0080FF"
+  linkcolor: "#0F172E"
+  geometry:
+    - left=18mm
+    - right=18mm
+    - top=20mm
+    - bottom=20mm
+
+# PDF-specific options
+pdf-variables:
+  fontfamily: sans-serif        # For xelatex: sans-serif, serif, etc.
+  mainfont: Georgia             # Default serif font
+  sansfont: Inter               # Default sans-serif font
+  monofont: "Courier New"       # Monospace font for code
+
+# Page breaks
+keep-empty-lines: false
+preserve-tabs: true
+
+# Image handling
+image-extensions:
+  - svg
+  - pdf
+  - png
+  - jpg
+  - jpeg
+  - gif
+
+# Filters (optional - for custom processing)
+filters:
+  # - pandoc-include          # Include external files
+  # - pandoc-crossref        # Cross-references
+  # - pandoc-citeproc        # Citations
+
+# Output options
+output-file: CEO-Autonomo-Guia-Maestra-v3.pdf
+standalone: true
+self-contained: true
+
+# Verbosity
+verbose: false
+fail-if-warnings: false
