@@ -202,4 +202,66 @@ class E2ETester:
             return False
     
     def test_environment_variables(self):
-        """Test critical environment variables are
+        """Test critical environment variables are    
+    def run_all_tests(self):
+        """Run complete test suite."""
+        print("=" * 60)
+        print("CEO AUTÓNOMO - E2E TEST SUITE")
+        print("=" * 60)
+        print(f"Target: {self.base_url}")
+        print(f"Started: {self.start_time.isoformat()}")
+        print("=" * 60)
+        
+        # Run all tests
+        self.test_health_endpoint()
+        self.test_checkout_page()
+        self.test_session_creation()
+        self.test_webhook_endpoint()
+        self.test_success_page()
+        self.test_cancel_page()
+        
+        # Print summary
+        self.print_summary()
+    
+    def print_summary(self):
+        """Print test summary."""
+        print("\n" + "=" * 60)
+        print("TEST SUMMARY")
+        print("=" * 60)
+        
+        passed = sum(1 for _, status, _ in self.results if status)
+        failed = sum(1 for _, status, _ in self.results if not status)
+        
+        for name, status, error in self.results:
+            icon = "✓" if status else "✗"
+            print(f"{icon} {name:<25} {'PASS' if status else 'FAIL'}")
+            if error:
+                print(f"   Error: {error}")
+        
+        print("=" * 60)
+        print(f"Results: {passed} passed, {failed} failed")
+        print(f"Duration: {(datetime.now() - self.start_time).total_seconds():.2f}s")
+        print("=" * 60)
+        
+        return failed == 0
+
+def main():
+    parser = argparse.ArgumentParser(description="CEO Autónomo E2E Tests")
+    parser.add_argument("--local", action="store_true", help="Test localhost:4242")
+    parser.add_argument("--url", default=None, help="Custom base URL")
+    args = parser.parse_args()
+    
+    if args.local:
+        base_url = "http://localhost:4242"
+    elif args.url:
+        base_url = args.url
+    else:
+        base_url = os.getenv("TEST_URL", "http://localhost:4242")
+    
+    tester = E2ETester(base_url)
+    success = tester.run_all_tests()
+    
+    sys.exit(0 if success else 1)
+
+if __name__ == "__main__":
+    main()
