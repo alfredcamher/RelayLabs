@@ -1,10 +1,14 @@
 # AGENTS.md - Agent Orchestration & Coding Operations
 
-This folder is your headquarters. Own it.
+*This folder is your headquarters. Own it.*
+
+---
 
 ## Active Agent Registry
+
 **File:** `memory/active-agents.json`
 **Updated:** Every heartbeat (30 min)
+
 **Format:**
 ```json
 {
@@ -24,9 +28,12 @@ This folder is your headquarters. Own it.
 }
 ```
 
+---
+
 ## Agent Types
 
 ### 1. Coding Agents (Ralph Loop Pattern)
+
 **Purpose:** Long-running development tasks (hours to days)
 **Model:** Kimi K2.5
 **Pattern:** Ralph loop (retry with fresh context)
@@ -54,9 +61,9 @@ sessions_spawn(
 ```bash
 # On agent check-in, verify:
 git log --oneline -5 --since="30 minutes ago"  # commits?
-git diff --stat HEAD~3..HEAD                    # files changed?
-ls -la build/ 2>/dev/null || echo "no build"    # output exists?
-cat logs/last-output.log 2>/dev/null            # recent stdout?
+git diff --stat HEAD~3..HEAD  # files changed?
+ls -la build/ 2>/dev/null || echo "no build"  # output exists?
+cat logs/last-output.log 2>/dev/null  # recent stdout?
 ```
 
 **Never declare done without:**
@@ -67,7 +74,9 @@ cat logs/last-output.log 2>/dev/null            # recent stdout?
 - [ ] If tested: test output shows pass
 
 ### 2. Support Agents (3-Tier Ladder)
+
 **Purpose:** Handle customer support autonomously
+
 **Tiers:**
 - **L1:** Auto-respond to common issues (FAQs, password resets)
 - **L2:** Draft responses for human review (complex issues)
@@ -82,7 +91,9 @@ cat logs/last-output.log 2>/dev/null            # recent stdout?
 **Output:** All responses logged to `memory/support-YYYY-MM-DD.md`
 
 ### 3. Monitor Agents (Heartbeat)
+
 **Purpose:** Watch systems, report anomalies
+
 **Types:**
 - **Revenue Monitor:** Check metrics APIs, flag anomalies
 - **Error Monitor:** Sentry integration, auto-file issues
@@ -96,8 +107,11 @@ cat logs/last-output.log 2>/dev/null            # recent stdout?
 - Viral mention → notify + draft response
 
 ### 4. Social Agents (xpost CLI)
+
 **Purpose:** Manage X/Twitter presence
+
 **Tool:** `xpost` CLI (bundled)
+
 **Autonomy Level:**
 - **Read:** All mentions, DMs, trends (full autonomy)
 - **Draft:** Responses, threads (human review optional)
@@ -112,25 +126,31 @@ cat logs/last-output.log 2>/dev/null            # recent stdout?
 ## Session Management
 
 ### tmux Best Practices
+
 **Socket:** `~/.tmux/sock` (not `/tmp`, survives macOS cleanup)
+
 **Create:**
 ```bash
 tmux -S ~/.tmux/sock new-session -d -s {name}
 ```
+
 **Attach:**
 ```bash
 tmux -S ~/.tmux/sock attach -t {name}
 ```
+
 **List:**
 ```bash
 tmux -S ~/.tmux/sock list-sessions
 ```
+
 **Kill:**
 ```bash
 tmux -S ~/.tmux/sock kill-session -t {name}
 ```
 
 ### Process Health Checks
+
 **Check if agent alive:**
 ```bash
 # Agent via tmux
@@ -201,7 +221,7 @@ subagents(action="kill", target="{session_id}")
     "everyMs": 1800000
   },
   "payload": {
-    "kind": "agentTurn", 
+    "kind": "agentTurn",
     "message": "Check on coding agent {id}. Verify git commits, logs. If stalled >30min, restart with fresh context."
   },
   "sessionTarget": "isolated",
@@ -214,13 +234,14 @@ subagents(action="kill", target="{session_id}")
 ## QA Subagent Pattern (MANDATORY)
 
 ### The Rule
+
 **Every deliverable MUST be reviewed by QA subagent before marking COMPLETE.**
 
-**No exceptions. No shortcuts. No "意图 as completion."**
+**No exceptions. No shortcuts. No "intent as completion."**
 
 ### QA Agent Protocol
 
-**Step 1: Developer (Yo) creates deliverable**
+**Step 1: Developer creates deliverable**
 - Write content/code/output
 - Self-review for obvious errors
 - **DO NOT mark COMPLETE**
@@ -228,15 +249,14 @@ subagents(action="kill", target="{session_id}")
 **Step 2: Spawn QA Subagent**
 ```bash
 sessions_spawn(
-    agentId="qa-reviewer",
-    task="REVIEW ONLY - Evaluate deliverable against quality criteria:
-          1. Accuracy: Is information correct?
-          2. Completeness: All requirements met?
-          3. Professionalism: Format, tone, polish?
-          4. Actionability: Can user act on this?
-          
-          Output: APPROVED / NEEDS_REVISION with specific feedback",
-    timeout=600
+  agentId="qa-reviewer",
+  task="REVIEW ONLY - Evaluate deliverable against quality criteria:
+    1. Accuracy: Is information correct?
+    2. Completeness: All requirements met?
+    3. Professionalism: Format, tone, polish?
+    4. Actionability: Can user act on this?
+    Output: APPROVED / NEEDS_REVISION with specific feedback",
+  timeout=600
 )
 ```
 
@@ -248,140 +268,58 @@ sessions_spawn(
 **Step 4: Revision Loop**
 ```
 IF APPROVED:
-    → Mark task COMPLETE
-    → Document approval in git commit
-    → Proceed
-    
+  → Mark task COMPLETE
+  → Document approval in git commit
+  → Proceed
 IF NEEDS_REVISION:
-    → Fix issues identified
-    → Re-spawn QA for re-review
-    → Repeat until APPROVED
+  → Fix issues identified
+  → Re-spawn QA for re-review
+  → Repeat until APPROVED
 ```
 
-**Maximum Iterations:** 3 reviews per task
-- After 3 rounds, escalate to human if still not approved
+### Never Declare Done Without:
+- [ ] QA verdict: APPROVED
+- [ ] Specific feedback addressed
+- [ ] Git commit with approval documented
+- [ ] Task moved to "Complete"
 
-### QA Evaluation Criteria
+### Maximum Iterations
+- **3 reviews max per task**
+- After 3: Escalate to human for direction
 
-| Criterion | Weight | Check |
-|-----------|--------|-------|
-| **Accuracy** | 30% | Facts correct? Sources cited? |
-| **Completeness** | 25% | All requirements addressed? |
-| **Professionalism** | 20% | Format polished? No typos? |
-| **Actionability** | 15% | User can act on this? |
-| **Alignment** | 10% | Matches brand/persona? |
+---
 
-**Minimum Score:** 80% to pass
+## POST-TASK LEARNING LOOP (MANDATORY)
 
-### CRITICAL: NO Self-Approval
+### Golden Rule
 
-**Forbidden:**
-- "I reviewed it myself"
-- "It looks good to me"
-- "Ship it anyway"
-- Skipping QA because "urgent"
+**After EVERY completed task, mandatory reflection before marking COMPLETE.**
 
-**Required:**
-- External QA perspective
-- Independent verification
-- Iterative refinement until APPROVED
+**Purpose:** Continuous improvement, pattern recognition, avoid repeated failures
 
-### QA Agent Types
+### Reflection Template
 
-| Task Type | QA Focus |
-|-----------|----------|
-| **Content** | Clarity, voice, value, CTAs |
-| **Code** | Security, efficiency, error handling |
-| **Design** | Usability, accessibility, brand |
-| **Research** | Sources, accuracy, completeness |
+Append to `memory/continuous-learning-YYYY-MM.md`:
 
-### Documentation
-
-**Each task completion must show:**
 ```markdown
-### Task: [Name]
-- **Developer:** Alfred
-- **QA Review:** ✅ APPROVED by [qa-agent-id]
-- **Iterations:** 2 (v1 → feedback → v2 → approved)
-- **Committed:** [git-hash]
-```
+### Task Reflection: [TASK-ID]
+**Deliverable:** [What was created]
+**QA Status:** [APPROVED/NEEDS_REVISION]
+**Effort:** [Time/cycles spent]
 
-### Example Workflow
+#### What Worked? ⭐
+- [Specific success to repeat]
 
-**BEFORE (❌ Wrong):**
-```
-Tarea: Escribir thread X
-→ Yo escribo 5 tweets
-→ Mark COMPLETE
-→ Resultado: "super chafa"
-```
+#### What Failed? ❌
+- [Specific failure to avoid]
+- [Tool that didn't work]
+- [Assumption that was wrong]
 
-**AFTER (✅ Correct):**
-```
-Tarea: Escribir thread X
-→ Yo escribo draft v1
-→ QA review → NEEDS_REVISION
-  "Hooks débiles, CTAs confusos"
-→ Yo reviso v2
-→ QA review → NEEDS_REVISION
-  "Mejor, pero falta proof"
-→ Yo reviso v3
-→ QA review → ✅ APPROVED
-→ Mark COMPLETE
-→ Resultado: "súper bueno"
-```
+#### What Was Inefficient? ⏱️
+- [Waste to eliminate]
+- [Tool that could have helped]
 
-### Success Metric
+#### What I'll Do Better Next Time? 🎯
+- [Concrete improvement for similar tasks]
 
-**Target:** 90%+ approval rate on first QA review
-**If below 70%:** Re-evaluate my drafting process
-
-### Integration with Existing Patterns
-
-**Ralph Loop:** QA review = mandatory checkpoint before commit
-**Heartbeat:** QA metrics tracked per cycle
-**Self-healing:** Failed QA → Document why → Prevent repeat
-
----
-
-## Failure Recovery Patterns
-
-### Pattern: Agent Stalls (No Output 30+ min)
-1. Check process: alive?
-2. Check tmux: session exists?
-3. Check git: any commits in window?
-4. Decision:
-   - Alive + no commits → restart with fresh context (Ralph loop)
-   - Dead → log death, respawn, notify
-   - Alive + commits → extend deadline, continue monitoring
-
-### Pattern: Git Conflict
-1. Detect in agent check-in
-2. Auto-resolve if trivial (text files, predictable)
-3. Escalate if non-trivial (code logic conflicts)
-4. Never force-push
-
-### Pattern: Test Failure
-1. Agent reports test fail
-2. Analyze: regression or new failure?
-3. Fix if obvious/bounded scope
-4. Escalate if architectural or unknown cause
-
-### Pattern: Agent Loop (Retry Spiral)
-1. Count retries in agent registry
-2. After 3rd retry → mandatory human escalation
-3. Document failure mode for pattern analysis
-
----
-
-## Documentation Required
-
-After every agent session, update:
-- `memory/YYYY-MM-DD.md` → outcomes, blockers
-- `memory/active-agents.json` → mark complete/failed
-- `REVENUE.md` → if revenue-impacting work
-- `PROJECTS.md` → if project milestone reached
-
----
-
-_Last agent spawned: None | Active agents: 0 | Ralph loops completed: 0_
+#### Tools Discovered?
