@@ -371,6 +371,58 @@ Never hide costs, always optimize.
 
 ---
 
+## Business Scaling & Performance (Alex Hormozi)
+
+**Source:** Alex Hormozi (Acquisition.com) via Dickie Bush's $45k VAM Workshop
+
+### The VAM (Value Accelerator Method) Approach
+
+**Core Methodology:**
+1. Submit full business metrics report
+2. Team analyzes main CONSTRAINT based on numbers
+3. Match with Subject Matter Expert (SME) in that constraint
+4. Receive frameworks to break through bottleneck
+
+### Constraint Analysis Framework
+
+**The Process:**
+1. **Identify metrics** - All business numbers
+2. **Find bottleneck** - Main constraint holding back growth
+3. **Define "ideal scene"** - What optimal system looks like
+4. **Build system** - Process to reach ideal state
+5. **Run for long period** - Execute system consistently
+
+**Example Application (Dickie Bush):**
+| Component | Status |
+|-----------|--------|
+| Traffic | ✅ Plenty - within KPI |
+| Sales Process | ✅ Great - above KPI |
+| **Bottleneck** | ⚠️ Middle funnel (clicks → calls) |
+| **Solution** | Page-by-page optimization system |
+
+### "Ideal Scene" Concept
+
+**What it means:** Define what optimal looks like, then build system to achieve it.
+
+**For Relay Labs:**
+| System | Current | Ideal Scene |
+|--------|---------|-------------|
+| PDF Delivery | Manual/Script | Auto-delivery on purchase |
+| Content Media | Written only | YouTube, X, Newsletter |
+| Paid Ads | None | Testing framework in place |
+
+### Immediate Takeaways (Partial - Full Content Pending)
+
+**Priorities until full extraction:**
+1. **Identify clear constraints** - What's the current bottleneck?
+2. **Define ideal scenes** - What should optimal look like?
+3. **Build simple systems** - Process to reach ideal state (not perfect)
+4. **Execute long-term** - Run system, iterate
+
+**Status:** Partial extraction complete. Full frameworks pending.
+
+---
+
 ## Knowledge Sources
 
 ### Jason Yeh (Fundraising)
