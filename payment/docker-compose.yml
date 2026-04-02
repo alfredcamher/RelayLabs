@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  stripe-server:
+    build: .
+    container_name: ceo-autonomo-payment
+    ports:
+      - "4242:4242"
+    environment:
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
+      - STRIPE_PRICE_ID=${STRIPE_PRICE_ID}
+      - DOMAIN=${DOMAIN}
+      - PRODUCT_URL=${PRODUCT_URL}
+      - EMAIL_PROVIDER=${EMAIL_PROVIDER:-none}
+      - FROM_EMAIL=${FROM_EMAIL:-noreply@example.com}
+      - SENDGRID_API_KEY=${SENDGRID_API_KEY}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+    volumes:
+      - ./purchases.log:/app/purchases.log
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4242/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

@@ -99,6 +99,7 @@ def create_checkout_session():
             customer_creation='always',  # Create customer for receipt
             # Optional: collect email for delivery
             billing_address_collection='auto',
+            customer_email=None,  # Let Stripe collect email
         )
         return redirect(checkout_session.url, code=303)
     except Exception as e:
@@ -185,14 +186,36 @@ def webhook():
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         
-        # TODO: Implement email delivery
-        # - Send email with download link using SendGrid/AWS SES
-        # - Log purchase to database
-        # - Add to email sequences
-        
-        print(f"✅ Payment completed: {session['id']}")
-        print(f"   Customer: {session['customer_details']['email']}")
-        print(f"   Amount: ${session['amount_total']/100:.2f}")
+        # Import webhook handlers
+        try:
+            from webhook_handlers import PurchaseLogger, EmailDeliverer
+            
+            # Log purchase
+            PurchaseLogger.log_purchase(
+                session_id=session['id'],
+                email=session['customer_details']['email'],
+                amount=session['amount_total'],
+                currency=session['currency'].upper()
+            )
+            
+            # Send delivery email
+            emailer = EmailDeliverer()
+            email_sent = emailer.send_delivery_email(
+                to_email=session['customer_details']['email'],
+                customer_name=session['customer_details'].get('name', '')
+            )
+            
+            if email_sent:
+                print(f"📧 Delivery email sent to: {session['customer_details']['email']}")
+            else:
+                print(f"⚠️  Email delivery failed for: {session['customer_details']['email']}")
+                print(f"   Manual delivery required. Check purchases.log")
+        except Exception as e:
+            print(f"⚠️  Webhook handler error: {str(e)}")
+            # Log basic info anyway
+            print(f"✅ Payment completed: {session['id']}")
+            print(f"   Customer: {session['customer_details']['email']}")
+            print(f"   Amount: ${session['amount_total']/100:.2f} {session['currency'].upper()}")
     
     return jsonify({'status': 'success'}), 200
 
