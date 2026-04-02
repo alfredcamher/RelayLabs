@@ -230,4 +230,8 @@ if __name__ == '__main__':
     print("=" * 60)
     print(f"Domain: {DOMAIN}")
     print(f"Price ID: {PRICE_ID}")
-    print(f"Stripe Key configured: {'Yes'
+    print(f"Stripe Key configured: {'Yes' if stripe.api_key else 'No'}")
+    print("=" * 60)
+    print("Ready! Open browser to:", DOMAIN)
+    print("=" * 60)
+    app.run(host='0.0.0.0', port=4242, debug=False)

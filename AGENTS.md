@@ -19,7 +19,6 @@
       "status": "running|stalled|failed|completed",
       "start_time": "2026-03-31T14:20:00Z",
       "last_checkin": "2026-03-31T14:45:00Z",
-      "tmux_session": "felix-codex-001",
       "scope": "Implement user auth system",
       "retry_count": 0,
       "blockers": null
@@ -49,8 +48,7 @@ sessions_spawn(
 
 **Ralph Loop Protocol:**
 1. **Spawn** → agent with explicit scope, deadline, check-in interval (30 min)
-2. **tmux** → `tmux -S ~/.tmux/sock new-session -s {session-name}`
-3. **Monitor** → check-in every 30 min: git status + output summary
+2. **Monitor** → check-in every 30 min: git status + output summary
 4. **Decision Matrix:**
    - On track → continue
    - Stalled (>30 min silent) → retry with fresh context
@@ -125,36 +123,10 @@ cat logs/last-output.log 2>/dev/null  # recent stdout?
 
 ## Session Management
 
-### tmux Best Practices
-
-**Socket:** `~/.tmux/sock` (not `/tmp`, survives macOS cleanup)
-
-**Create:**
-```bash
-tmux -S ~/.tmux/sock new-session -d -s {name}
-```
-
-**Attach:**
-```bash
-tmux -S ~/.tmux/sock attach -t {name}
-```
-
-**List:**
-```bash
-tmux -S ~/.tmux/sock list-sessions
-```
-
-**Kill:**
-```bash
-tmux -S ~/.tmux/sock kill-session -t {name}
-```
-
 ### Process Health Checks
 
 **Check if agent alive:**
 ```bash
-# Agent via tmux
-tmux -S ~/.tmux/sock has-session -t {name} 2>/dev/null && echo "alive"
 
 # Process by PID
 ps -p {pid} > /dev/null && echo "running"
