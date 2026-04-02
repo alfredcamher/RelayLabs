@@ -2,8 +2,8 @@
 
 *"This is where I keep the playbook. Everything I know about building companies, making money, and playing the game."*
 
-**Source:** admnt.com (Jason Yeh - Patreon co-founder, former VC)  
-**Purpose:** Central knowledge repository for business strategy, fundraising, and growth.  
+**Sources:** admnt.com (Jason Yeh), Lenny Rachitsky (ex-Airbnb), Andrew Chen (a16z)
+**Purpose:** Central knowledge repository for business strategy, fundraising, product, and growth.
 **Updated:** Continuously via web fetch + QA validation
 
 ---
@@ -15,8 +15,10 @@
 3. [Pitch & Deck Mastery](#pitch--deck-mastery)
 4. [Investor Psychology](#investor-psychology)
 5. [Funding Strategy](#funding-strategy)
-6. [Personal Branding for Founders](#personal-branding-for-founders)
-7. [Operational Excellence](#operational-excellence)
+6. [Product-Market Fit (Lenny Rachitsky)](#product-market-fit-lenny-rachitsky)
+7. [Product & Growth (Lenny Rachitsky)](#product--growth-lenny-rachitsky)
+8. [Personal Branding for Founders](#personal-branding-for-founders)
+9. [Operational Excellence](#operational-excellence)
 
 ---
 
@@ -238,6 +240,101 @@ VCs communicate through:
 
 ---
 
+## Product-Market Fit (Lenny Rachitsky)
+
+### The Problem with PMF Discussions
+
+**Source:** *How To Know If You've Got Product/Market Fit* (Lenny Rachitsky, ex-Airbnb)
+
+> "Founders and VCs are constantly talking about the importance of finding Product/Market Fit (PMF), while most people (including myself) have only a vague grasp on what it looks like."
+
+**The Marc Andreessen Truth:**
+> "The only thing that matters is getting to product/market fit."
+
+### PMF Indicators (Pre-Product)
+
+#### 1. Visible Excitement 🤩
+> "The real metric for both consumer apps and enterprise is — do someone's pupils dilate when they use your product?"
+
+**Translation:** If people aren't visibly excited when they first use your product, you don't have PMF indicators.
+
+**Pre-launch Test:**
+- Watch prospects' reactions during demo
+- Are they leaning forward? Asking questions immediately?
+- Or nodding politely while checking their phone?
+
+#### 2. The "Hair on Fire" Test
+People with "hair on fire" problems:
+- Will use ugly, buggy solutions
+- Will pay before the product is ready
+- Will evangelize before you ask
+
+**This is pre-PMF gold.**
+
+### PMF Scorecard
+
+| Indicator | What to Look For | To Test |
+|-----------|-----------------|---------|
+| **Excitement** | Pupils dilate | Demo recordings |
+| **Retention** | Come back without prompting | Usage analytics |
+| **Referral** | Organic word-of-mouth | "How did you hear about us?" |
+| **Pricing Power** | Will pay before ready | Pre-orders |
+| **Usage** | Daily/weekly active | Engagement metrics |
+
+---
+
+## Product & Growth (Lenny Rachitsky)
+
+### The "Internet Has Never Seen" Principle
+
+**Source:** *What Seven Years at Airbnb Taught Me*
+
+**Joe Gebbia's advice to designer:**
+> "Build something the internet has never seen before."
+
+**What it became:**
+> "This mindset has been one of the key ingredients in Airbnb's historic growth."
+
+**Application:** Don't just make "a guide." Make something that redefines what a "guide" is.
+
+### Marketplace Supply Growth (28 Ways)
+
+**Context:** Airbnb grew supply from 100k (2012) to 6M+ homes
+
+**The Paul Graham Insight:**
+> "Airbnb now seems like an unstoppable juggernaut, but early on it was so fragile that about 30 days of going out and engaging in person with users made the difference between success and failure."
+
+**The 28 Ways to Grow Supply:**
+
+1. **Add existing supply** - Import inventory that already exists
+2. **Create supply** - Airbnb photographed homes (didn't exist)
+3. **Reduce friction** - Instant Book, pricing tools
+4. **Increase motivation** - Financial + social incentives
+5. **Build tools** - Professional photography, pricing guidance
+6. **Marketplace improvements** - Better matching algorithms
+7. **Policy/Governance** - Legal frameworks for short-term rentals
+
+**For B2B Products:**
+- Supply = Case studies, templates, frameworks
+- Demand = Customers wanting transformation
+- Friction = Onboarding time, setup complexity
+
+### Core Lessons from Airbnb's Growth
+
+**Build strong culture, values...**
+
+1. **Stay laser-focused on problems**
+   - Airbnb didn't chase features, they solved host/guest pain
+   - Teams organized around problems, not products
+
+2. **Set wildly ambitious goals**
+   - 2012: 100k homes → Today: 6M+ homes (60x growth)
+
+3. **Create moments of magic**
+   - "Belong anywhere" wasn't a feature, it was a feeling
+
+---
+
 ## Personal Branding for Founders
 
 ### The Power of Personal Branding
@@ -252,4 +349,68 @@ VCs communicate through:
 **Key channels:**
 - Twitter/X: Real-time founder journey
 - LinkedIn: Professional credibility
-- Newsletter
+- Newsletter: Deep audience relationships
+
+---
+
+## Operational Excellence
+
+### Systems Thinking
+
+**Default heuristics:**
+- High confidence → Execute immediately
+- Medium confidence → Execute + notify with reversal option
+- Low confidence → Draft + ask for decision within 24h
+- Critical/irreversible → Hold + escalate
+
+### Cost Transparency
+
+Every message: show token count × rate.
+Monthly tracking in REVENUE.md.
+Never hide costs, always optimize.
+
+---
+
+## Knowledge Sources
+
+### Jason Yeh (Fundraising)
+- **Site:** admnt.com
+- **Background:** Patreon co-founder, former VC
+- **Focus:** Fundraising strategy, angel investing
+- **Key works:** Angel Army, Truth About Intros
+
+### Lenny Rachitsky (Product & Growth)
+- **Site:** lennyrachitsky.com
+- **Background:** Ex-Airbnb (7 years, supply growth lead)
+- **Focus:** Product-market fit, marketplace growth
+- **Newsletter:** 500k+ subscribers
+
+### Andrew Chen (Growth)
+- **Site:** andrewchen.com → andrewchen.substack.com
+- **Background:** GP at a16z, former Uber growth
+- **Focus:** Network effects, growth loops
+- **Newsletter:** 255k+ subscribers
+- **Book:** The Cold Start Problem
+
+---
+
+## Before ANY Business Decision
+
+**Check EXPERTISE.md first:**
+1. Fundraising strategy → 「Fundraising Fundamentals」section
+2. Investor intros → 「Angel Army Strategy」+「The Two Drivers of Intros」
+3. Pitch decks → 「Pitch & Deck Mastery」
+4. PMF questions → 「Product-Market Fit (Lenny Rachitsky)」
+5. Product/Growth → 「Product & Growth (Lenny Rachitsky)」
+6. How much to raise → 「Funding Strategy」
+
+---
+
+_Last updated: 2026-04-02_
+_Sources: admnt.com, Lenny Rachitsky's Medium, Andrew Chen's essays_
+
+### The Problem with PMF Discussions
+
+**Source:** *How To Know If You've Got Product/Market Fit*
+
+> "Founders and VCs

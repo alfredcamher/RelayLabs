@@ -131,6 +131,19 @@
 - **Memory Update:** `memory/competitive-intel-YYYY-MM-DD.md`
 - **Status:** ⏳ READY
 
+#### R6: Lenny Rachitsky - Product & Marketplace Growth
+- **ID:** RESEARCH-006
+- **Task:** Research Lenny Rachitsky patterns (ex-Airbnb, 7 years, 500k newsletter)
+- **Focus:** Product-market fit indicators, marketplace supply growth, operational excellence
+- **Sources:**
+  - https://medium.com/swlh/twenty-eight-ways-to-grow-supply-in-a-marketplace-9e143019bf2d
+  - https://medium.com/@lennysan/how-to-know-if-youve-got-product-market-fit-d19a8fe6faf7
+  - https://medium.com/marker/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56
+- **Output:** Product/Marketplace growth patterns with actionable frameworks
+- **Memory Update:** `memory/lenny-rachitsky-patterns-2026-04-02.md` ✅ **COMPLETE**
+- **Key Findings:** PMF = visible excitement, "hair on fire" test, "internet has never seen" principle, marketplace supply growth (28 ways)
+- **Status:** ✅ COMPLETE
+
 ---
 
 ### SYNTHESIS PHASE
