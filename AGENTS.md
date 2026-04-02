@@ -323,3 +323,100 @@ Append to `memory/continuous-learning-YYYY-MM.md`:
 - [Concrete improvement for similar tasks]
 
 #### Tools Discovered?
+- [New capability to remember]
+
+### Velocity Metric
+
+**Target:** Each task should be faster than similar previous task (time/cycles)
+**Quality Target:** 90%+ approval rate on first QA review
+**If below 70%:** Re-evaluate entire drafting process
+
+---
+
+## Writing Standards
+
+### Andrew Chen Style Guide (MANDATORY)
+
+**Voice & Tone**
+
+Channel Andrew Chen's style:
+- **Conversational**: "The best products don't just grow, they compound, right?"
+- **Data-driven but human**: Mix metrics with real perspective
+- **Long-form depth**: Substance over fluff, frameworks over hacks
+- **Direct questions**: Use "right?" to engage reader
+- **Pattern-oriented**: "Here's the thing..." → reveal insight
+
+**Writing Principles**
+
+| Old Way (Generic) | Andrew Chen Way |
+|-------------------|-----------------|
+| "This is important because..." | "Here's the thing that changes everything, right?" |
+| "Data shows that..." | "When you look at the numbers, something interesting happens..." |
+| "You should do X" | "The founders who win tend to do this one thing differently..." |
+| "Here are 5 tips" | "The pattern I keep seeing across $1B+ companies..." |
+| "This tool is useful" | "Here's why this changes the game for growth teams..." |
+
+**Sentence Structure**
+
+✅ **Use:**
+- "The interesting part is..."
+- "What most people miss..."
+- "Here's the kicker..."
+- "The pattern I've seen..."
+- "Turns out..."
+- "..., right?"
+
+❌ **Avoid:**
+- Corporate buzzwords ("leverage", "synergy")
+- Passive voice
+- Bullet points without narrative
+- Generic advice without specific examples
+
+**Content Depth Standards**
+- **Research-backed**: Cite sources, show data
+- **Specific examples**: Name companies, quote metrics
+- **Actionable frameworks**: Not just "what" but "how"
+- **Narrative arc**: Hook → insight → evidence → takeaway
+
+**Example Transformation**
+
+**Generic (Before):**
+> "To grow your business, you should focus on customer acquisition. Consider using social media and building partnerships. These tactics are proven to work."
+
+**Andrew Chen Style (After):**
+> "Here's the thing about growth that most founders miss, right? It's not about the tactics. The companies that scale—Stripe, Airbnb, the real outliers—they don't chase hacks. They build loops that compound. Customer acquisition isn't an activity, it's a system. And the founders who win are the ones who stagger their growth channels deliberately, so each one kicks in just as the last plateaus. That's the pattern."
+
+**Apply to All Deliverables:**
+- PDF guides
+- Research reports
+- Twitter threads
+- Newsletter content
+- Strategy documents
+
+**Check:** Would Andrew Chen send this to his 255,000 subscribers?
+**If not:** Revise until it passes the bar.
+---
+
+## BUSINESS KNOWLEDGE REFERENCE (AGENTS)
+
+### For Sub-agents Handling Business Tasks
+
+**Before advising on business strategy:**
+1. **Read EXPERTISE.md** → `/EXPERTISE.md`
+2. **Search memory** → `memory/continuous-learning-*.md`
+3. **Apply frameworks** → Use patterns from admnt.com, YC research
+
+**Key Sources to Continuously Update From:**
+- admnt.com (Jason Yeh - fundraising expertise)
+- ycombinator.com/blog (startup patterns)
+- hbr.org (business strategy)
+- MIT Sloan (AI business models)
+
+### Knowledge Hierarchy
+1. **EXPERTISE.md** → Core frameworks (read first)
+2. **Recent memory** → Current context
+3. **Continuous learning** → New learnings synthesized
+4. **External fetch** → Latest data when needed
+
+---
+_Last updated: 2026-04-02_
