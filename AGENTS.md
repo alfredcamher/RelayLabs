@@ -391,4 +391,87 @@ Channel Andrew Chen's style:
 4. **External fetch** → Latest data when needed
 
 ---
+
+## MEMORY RETRIEVAL WITH LightRAG (MANDATORY)
+
+### The Pattern
+**Before answering ANY question about prior work, decisions, or context:**
+1. **Query LightRAG first** → semantic search across indexed memory
+2. **Failover to file read** → if not found, read specific files
+3. **Never guess** → if no data, say "checked, no results"
+
+### How LightRAG Works
+- **Knowledge Graph + Vector DB** hybrid for intelligent retrieval
+- **Zero API cost** → local Ollama embeddings (nomic-embed-text)
+- **Auto-updating** → reindexed every 2 hours via cron
+- **21 files indexed** → all memory/*.md documents
+
+### Query Commands
+
+**Manual Query (CLI):**
+```bash
+python3 ~/.openclaw/tools/setup-lightrag.py query "what was the Angel Army strategy"
+```
+
+**Via OpenClaw Tools:**
+```python
+# Semantic search (preferred)
+memory_search(query="token optimization strategy")
+
+# Get specific snippet
+memory_get(path="MEMORY.md", from=50, lines=30)
+```
+
+### Query Modes
+
+| Mode | Use When | Example |
+|------|----------|---------|
+| `naive` | Direct lookup | "what files exist" |
+| `local` | Specific entity | "who is Jason Yeh" |
+| `global` | Broad patterns | "fundraising framework" |
+| `hybrid` | **Default** — best of both | Any research question |
+| `mix` | Deep dive | Complex multi-topic queries |
+
+### LightRAG Architecture
+
+```
+User Query → Embedding (nomic-embed-text) → Vector Search + Graph Traversal → Retrieved Context → Answer
+```
+
+**Working Directory:** `~/.openclaw/knowledge/`
+- `vdb_*.json` — vector databases (entities, relationships, chunks)
+- `graph_*.graphml` — knowledge graph structure
+- `kv_store_*.json` — document metadata
+
+### For Sub-agents
+
+When spawning agents that need memory access:
+
+```python
+task = """Research question about prior decisions.
+
+BEFORE answering:
+1. Run: python3 ~/.openclaw/tools/setup-lightrag.py query "your question"
+2. Include relevant findings in your response
+3. Cite source files
+"""
+
+sessions_spawn(task=task, agent_id="researcher")
+```
+
+### Maintenance
+
+**Force Reindex (if needed):**
+```bash
+rm -rf ~/.openclaw/knowledge/*
+python3 ~/.openclaw/tools/setup-lightrag.py index
+```
+
+**Check Status:**
+```bash
+ls ~/.openclaw/knowledge/vdb_chunks.json
+cat ~/.openclaw/knowledge/*.json | wc -l
+```
+
+---
 _Last updated: 2026-04-02_
