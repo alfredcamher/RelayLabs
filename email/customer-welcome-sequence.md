@@ -1,213 +1,209 @@
-# Customer Welcome Sequence - Post-Purchase
+ar.
 
-## Overview
-5-email sequence sent after purchase.
-Goals: Reduce buyer's remorse, increase consumption, build community.
+Single action today.
 
----
+Alfred
 
-## Email 1: Welcome + Immediate Access
-**Trigger:** Immediately after purchase
-**Subject:** 🎉 ¡Bienvenido a CEO Autónomo! Tu acceso está aquí
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido a CEO Autónomo</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; margin: 0; padding: 0; background: #f9fafb; }
-        .container { max-width: 600px; margin: 0 auto; background: #ffffff; }
-        .header { background: linear-gradient(135deg, #2563eb 0%, #059669 100%); color: white; padding: 40px 30px; text-align: center; }
-        .content { padding: 40px 30px; }
-        .button { display: inline-block; background: #059669; color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 18px; margin: 20px 0; }
-        .download-box { background: #f0fdf4; border: 2px solid #059669; padding: 30px; border-radius: 8px; margin: 30px 0; text-align: center; }
-        .framework { background: #f9fafb; border-left: 4px solid #2563eb; padding: 20px; margin: 20px 0; }
-        .footer { background: #f3f4f6; padding: 30px; text-align: center; font-size: 14px; color: #6b7280; }
-        .community { background: #fef3c7; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        @media only screen and (max-width: 600px) {
-            .content { padding: 30px 20px; }
-            .header { padding: 30px 20px; }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-
-        <!-- Header -->
-        <div class="header">
-            <h1 style="margin: 0 0 10px 0; font-size: 28px;">🎉 ¡Bienvenido!</h1>
-            <p style="margin: 0; font-size: 18px; opacity: 0.9;">Tu acceso a CEO Autónomo está listo</p>
-        </div>
-
-        <!-- Content -->
-        <div class="content">
-
-            <p>Hola {{first_name}},</p>
-
-            <p><strong>Gracias por tu confianza.</strong></p>
-
-            <p>Acabas de tomar una de las mejores decisiones para tu negocio (y tu vida).</p>
-
-            <p>En los próximos 30 días vas a tener sistemas que te devuelven horas semanales.</p>
-
-            <!-- Download Box -->
-            <div class="download-box">
-                <h3 style="margin: 0 0 10px 0; color: #059669;">📥 Descarga tu guía aquí:</h3>
-                <p style="color: #374151; margin: 0 0 20px 0;">CEO Autonomo - Guia Maestra v3.0.pdf</p>
-                <a href="{{download_url}}" class="button">Descargar Ahora →</a>
-                <p style="font-size: 14px; color: #6b7280; margin: 15px 0 0 0;">El link es permanente. Guarda este email.</p>
-            </div>
-
-            <p><strong>Lo que acabas de obtener:</strong></p>
-
-            <ul style="line-height: 2; color: #374151;">
-                <li>✅ Guía completa (100+ páginas)</li>
-                <li>✅ 5 frameworks detallados paso a paso</li>
-                <li>✅ 20+ plantillas listas para usar</li>
-                <li>✅ Toolkit de automatización</li>
-                <li>✅ Acceso de por vida</li>
-                <li>✅ Actualizaciones gratis</li>
-            </ul>
-
-            <p><strong>Recomendación: Empieza con esto</strong></p>
-
-            <div class="framework">
-                <strong>1. Framework #1: Máquina de Delegación</strong>
-                <p style="margin: 10px 0 0 0;">Leelo primero. Es el que más impacto tiene inmediatamente.</p>
-            </div>
-
-            <div class="framework">
-                <strong>2. El Checklist de 7 Días (incluido)</strong>
-                <p style="margin: 10px 0 0 0;">Síguelo exactamente. Te lleva de la teoría a la acción.</p>
-            </div>
-
-            <div class="framework">
-                <strong>3. Calcula Tu Costo Real</strong>
-                <p style="margin: 10px 0 0 0;">Haz el ejercicio del costo de NO delegar. Es revelador.</p>
-            </div>
-
-            <div class="community">
-                <strong>💬 Únete a la comunidad</strong>
-                <p style="margin: 10px 0 0 0;">Tenemos un grupo privado de CEOs Autónomos. Pregunta, comparte, conecta:</p>
-                <p style="margin: 15px 0 0 0;"><a href="{{community_link}}" style="color: #2563eb; font-weight: 600;">👉 Unirse al grupo privado</a></p>
-            </div>
-
-            <p><strong>Expectativas realistas:</strong></p>
-
-            <p>Semana 1: Vas a sentir que "no tienes tiempo" de implementar.<br>
-            <em>Esto es normal. Empieza con 30 minutos.</em></p>
-
-            <p>Semana 2: Vas a documentar tu primera tarea.<br>
-            <em>Pequeño win. Celebralo.</em></p>
-
-            <p>Semana 3-4: Vas a delegar algo.<br>
-            <em>Ahí es donde empieza la magia.</em></p>
-
-            <p>Una pregunta antes de irme:</p>
-
-            <p><em>¿Qué tarea odias hacer que podrías delegar primero?</em></p>
-
-            <p>Responde a este email con tu respuesta. Leelo personalmente.</p>
-
-            <p>Estoy aquí para ayudarte a implementar.</p>
-
-            <p>Alfred</p>
-
-            <p style="font-size: 14px; color: #6b7280; margin-top: 30px;">
-                P.D. Guarda este email en una carpeta segura. Es el único lugar con tu link de descarga permanente.
-            </p>
-
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>¿Preguntas? Responde a este email.</p>
-            <p style="margin: 10px 0;">
-                <a href="mailto:support@ceoautonomo.com" style="color: #2563eb;">Soporte</a>
-            </p>
-        </div>
-
-    </div>
-</body>
-</html>
+P.D. Respóndeme a este email con "DONE" si hiciste algo. Celebrarlo juntos.
 ```
 
 ---
 
-## Email 2: Day 3 - First Win Check-in
-**Trigger:** 72 hours post-purchase
-**Subject:** Quick check: ¿Ya empezaste el Framework #1?
+## Email 4: Day 14 - The Mid-Point Check
+**Trigger:** 14 days post-purchase
+**Subject:** Semana 2: La verdad sobre implementar sistemas
 
 ```
 Hola {{first_name}},
 
-Han pasado 3 días desde tu compra.
+Han pasado 2 semanas desde que compraste CEO Autónomo.
 
-Pregunta honesta: ¿Ya leíste el Framework #1 (Máquina de Delegación)?
+Primero: honestidad radical.
 
-Si SÍ → Qué framework te pareció más útil? Responde y cuéntame.
+¿Cuál de estas te describe mejor?
 
-Si NO → Totalmente normal. La vida interrumpe.
+OPCIÓN 1: "Ya implementé algo"
+- Documenté mi primera tarea
+- Identifiqué a quién delegar
+- O ya delegué algo
+→ Esto es para ti: [CELEBRATION EMOJI]
 
-Pero aquí está el truco:
+OPCIÓN 2: "Empecé pero me estancé"
+- Leí los frameworks
+- Hice el ejercicio de costos
+- Pero no avancé a la acción
+→ Esto es completamente normal.
 
-No necesitas "encontrar tiempo".
-Necesitas robar 15 minutos.
+OPCIÓN 3: "No he abierto el PDF"
+- Compré con la intención de "hacerlo después"
+- "Después" nunca llegó
+→ Esto también es normal.
 
-Opciones:
-• En lugar de Instagram en la cama → Leer Framework #1
-• En lugar de Netflix → Leer Framework #1
-• En lugar de responder ese email no urgente → Leer Framework #1
+Aquí está lo que he aprendido de 500+ emprendedores:
 
-Las primeras 15 minutos son las más importantes.
+La implementación NO es lineal.
 
-Rompe la inercia.
+Algunos avanzan rápido.
+Otros necesitan semanas para "sentirse listos".
+Ambos llegan al mismo lugar: sistemas que funcionan.
+
+La única diferencia entre quienes triunfan y quienes no es:
+
+Intento #2.
+
+---
+
+SI Opción 1: Comparte tu win
+Responde a este email contándome qué implementaste.
+Quiero celebrar contigo.
+
+SI Opción 2: Reconoce el bloqueo
+¿Qué te detuvo? Honestidad.
+¿Miedo a delegar? ¿Pereza? ¿Saturación?
+
+Responde con UNA línea: "El bloqueo fue: ______"
+Te ayudo a desbloquearlo.
+
+SI Opción 3: Empieza hoy
+Un paso pequeño:
+- Abre el PDF
+- Lee la página 10 (Framework #1)
+- Escribe una tarea que podrías delegar
+
+Es todo.
 
 [LINK DE DESCARGA]
 
-P.D. Mañana te envío mi "Anti-Procrastinación Hack" que uso cuando no tengo ganas de hacer algo importante.
--Alfred
+---
+
+La meta a 30 días:
+
+No es "implementar todo".
+Es "implementar UNA cosa".
+
+Una tarea delegada cambia tu semana.
+Una tarea delegada por semana cambia tu mes.
+Una tarea delegada por mes cambia tu vida.
+
+Paso pequeño → resultado grande.
+
+Empieza hoy.
+
+Alfred
+
+P.D. Mañana te envío la última de esta serie. Contiene mi "pregunta de pago" favorita.
 ```
 
 ---
 
-## Email 3: Day 7 - First Week Milestone
-**Trigger:** 7 days post-purchase
-**Subject:** Semana 1 completa: Tienes 3 la opciones
+## Email 5: Day 30 - The Testimonial Request
+**Trigger:** 30 days post-purchase
+**Subject:** Tu opinión: ¿Valió la pena?
 
 ```
 Hola {{first_name}},
 
-Han pasado 7 días.
+Han pasado 30 días.
 
-Estás en un punto decisivo:
+Técnicamente la garantía ya venció (era a 30 días).
 
-Camino A: Leíste algo → Hiciste el ejercicio → Documentaste tu primera tarea
-→ RESULTADO: Ya tienes momentum. Siguiente paso: encontrar a quien delegar.
+Pero técnicamente no importa porque NO VOY A PEDIRTE NADA.
 
-Camino B: Leíste algo → No hiciste nada aún
-→ RESULTADO: Información sin acción = entretenimiento. Pero gastaste $47, no $14 de Netflix.
+Solo quiero saber: ¿valió la pena?
 
-Camino C: Ni siquiera abriste el PDF aún
-→ RESULTADO: Estás validando tu creencia de que "no tienes tiempo". Ironía: exactamente por eso compraste esto.
+---
 
-(No soy duro por ser cruel. Soy directo porque es lo que necesitas.)
+QUIZÁS la hiciste en este mes desde CEO Autónomo:
 
-La buena noticia:
+[ ] Documenté una tarea (cualquiera)
+[ ] Encontré a alguien para delegar
+[ ] Delegué algo exitosamente
+[ ] Recuperé horas de mi semana
+[ ] Construí un sistema que funciona sin mí
+[ ] Tomé un día libre (porque el sistema funciona)
 
-Da igual en qué camino estés.
+Marca las que apliquen.
 
-Solo necesitas 1 acción hoy:
+Luego responde a este email con:
 
-SI Camino A: Comenta en el grupo qué tarea vas a delegar primero.
+OPCIÓN A: "Avancé"
+- Cuéntame qué implementaste
+- Quiero agregar tu testimonio al sitio con tu permiso
+- Ej: "Gracias a CEO Autónomo [resultado específico]"
 
-SI Camino B: Abre el PDF AHORA y lee solo la página 1-5.
+OPCIÓN B: "No avancé pero quiero"
+- ¿Qué te bloqueó? Te ayudo.
+- Tienes acceso de por vida.
+- El PDF no expira.
 
-SI Camino C: Configura un timer de 25 minutos y abre el PDF. Nada más. Solo ábrelo.
+OPCIÓN C: "No funcionó para mí"
+- ¿Por qué? Feedback honesto.
+- Te devuelvo el $47 igual.
+- No necesito explicaciones específicas.
 
-[LINK A COMUNIDAD]
+Solo tus 2 palabras: A, B, o C.
 
-El 80% del éxito es empez
+Quiero saber:
+- ¿Implementaste algo? Qué.
+- ¿Te quedaste atrás? Por qué.
+- ¿Te decepcionó? Por qué.
+
+Esto es para MEJORAR, no para venderte más.
+
+CEO Autónomo es mi producto principal (no tengo otro para ofrecerte).
+
+Si te funcionó: quiero celebrar.
+
+Si no: quiero aprender.
+
+---
+
+Respóndeme las preguntas simples:
+
+1. ¿Qué implementaste estos 30 días? (Frankness)
+2. ¿Cuál fue tu mayor win? (Celebración)
+3. ¿Qué te hubiese ayudado más? (Feedback)
+
+Tres líneas. Eso es todo.
+
+Gracias por la confianza hace 30 días.
+
+Espero tu respuesta.
+
+Alfred
+
+P.D. Si no respondes: totalmente ok. Tienes acceso de por vida al PDF. Mi inbox está abierto si alguna vez tienes preguntas. No caduca la relación aquí.
+
+P.D.2 Si quieres compartir públicamente tu testimonio, hazlo en el grupo. O mándame un email con "PUEDES USAR MI TESTIMONIO" y lo agrego al sitio.
+```
+
+---
+
+## Welcome Sequence Summary
+
+| Email | Timing | Subject Line | Goal |
+|-------|--------|--------------|------|
+| 1 | T+0 | 🎉 ¡Bienvenido a CEO Autónomo! | Access + expectations |
+| 2 | T+72h | Quick check: ¿Ya empezaste? | First action push |
+| 3 | T+7d | Semana 1: 3 caminos | Accountability |
+| 4 | T+14d | Semana 2: La verdad | Reframe + continue |
+| 5 | T+30d | Tu opinión: ¿Valió la pena? | Testimonial + closure |
+
+**Metrics Tracking:**
+- Email 1 opens: Target 85%+
+- Email 2 opens: Target 70%+
+- Email 3 opens: Target 60%+
+- Email 4 opens: Target 50%+
+- Email 5 opens: Target 40%+
+- Testimonial rate: Target 10%+
+
+**Automation Triggers:**
+- Send even if email not opened (persistence)
+- Track clicks to community link
+- Survey responses (A/B/C) for segmentation
+- Tag "engaged" vs "at-risk" based on opens
+
+---
+
+*Sequence complete: 5 emails ready for SendGrid*
+*Created: 2026-04-03 03:47 PM CDT*
