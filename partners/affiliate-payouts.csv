@@ -1,0 +1,4 @@
+affiliate_id,affiliate_name,email,month,transactions,total_sales,commission_rate,commission_earned,payout_status,payout_date
+AFF001,Ejemplo Distribuidor,ejemplo@email.com,2026-04,0,0,0.30,0.00,pending,
+AFF002,Influencer CEO Tech,influencer@email.com,2026-04,0,0,0.30,0.00,pending,
+AFF003,Coach Emprendedor,coach@email.com,2026-04,0,0,0.30,0.00,pending,
