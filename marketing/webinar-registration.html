@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinar Gratis: Delega el 80% en 30 Días | CEO Autónomo</title>
+    <style>
+        :root { --p: #2563eb; --s: #059669; --a: #f59e0b; --t: #1f2937; --l: #6b7280; --bg: #fff; --bl: #f9fafb; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bl); line-height: 1.6; color: var(--t); }
+        .container { max-width: 700px; margin: 0 auto; padding: 2rem; }
+        .header { text-align: center; padding: 3rem 0; }
+        .badge { background: linear-gradient(135deg, var(--p), var(--s)); color: #fff; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; display: inline-block; margin-bottom: 1.5rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .subtitle { color: var(--l); font-size: 1.125rem; margin-bottom: 2rem; }
+        .date-box { background: #fefce8; border: 2px solid var(--a); border-radius: 12px; padding: 1.5rem; text-align: center; margin-bottom: 2rem; }
+        .date-time { font-size: 1.5rem; color: var(--t); font-weight: 600; }
+        .urgency { color: #92400e; font-size: 0.875rem; margin-top: 0.5rem; }
+        .card { background: var(--bg); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+        .benefits { list-style: none; }
+        .benefits li { padding: 0.75rem 0; padding-left: 2rem; position: relative; color: var(--l); }
+        .benefits li:before { content: ""; position: absolute; left: 0; top: 1rem; width: 20px; height: 20px; background: #dcfce7; border-radius: 50%; }
+        .benefits li:after { content: ""; position: absolute; left: 6px; top: 1.35rem; width: 7px; height: 3px; border-left: 2px solid #166534; border-bottom: 2px solid #166534; transform: rotate(-45deg); }
+        input { width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; margin-bottom: 1rem; }
+        input:focus { outline: none; border-color: var(--p); }
+        .btn { background: var(--p); color: #fff; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; width: 100%; cursor: pointer; }
+        .btn:hover { background: #1d4ed8; }
+        .host { display: flex; gap: 1rem; align-items: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; }
+        .avatar { width: 80px; height: 80px; background: linear-gradient(135deg, var(--p), var(--s)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2rem; font-weight: 700; }
+        .host-info h3 { margin-bottom: 0.25rem; }
+        .host-info p { color: var(--l); font-size: 0.875rem; }
+        .spacer { height: 1px; background: #e5e7eb; margin: 2rem 0; }
+        .footer { text-align: center; padding: 2rem; color: var(--l); font-size: 0.875rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="badge">🎓 WEBINAR GRATIS - Cupos Limitados</span>
+            <h1>Cómo Delegar el 80% de Tu Operación en 30 Días</h1>
+            <p class="subtitle">El sistema paso a paso que usan CEOs para trabajar menos mientras sus negocios crecen</p>
+        </div>
+
+        <div class="date-box">
+            <div class="date-time">📅 Viernes, Abril 10 | 🕐 1:00 PM (CDT)</div>
+            <p class="urgency">⏰ Solo 500 cupos disponibles - Se llenan rápido</p>
+        </div>
+
+        <div class="card">
+            <h2 style="margin-bottom: 1rem;">Qué vas a aprender:</h2>
+            <ul class="benefits">
+                <li><strong>El costo real</strong> de hacerlo todo tú (calculadora incluida)</li>
+                <li><strong>Los 5 frameworks</strong> probados para delegar sistemáticamente</li>
+                <li><strong>Tu plan personalizado</strong> de 30 días para empezar mañana</li>
+                <li><strong>Cómo documentar</strong> procesos en 30 min (no días)</li>
+                <li><strong>La Matriz de Delegación</strong>: qué tareas sí, cuáles no</li>
+                <li><strong>BONUS:</strong> Templates listos para usar (Notion, Excel)</li>
+            </ul>
+
+            <div class="spacer"></div>
+
+            <form id="webinar-form" action="/api/webinar-register" method="POST">
+                <input type="text" name="name" placeholder="Tu nombre completo" required>
+                <input type="email" name="email" placeholder="tu@email.com" required>
+                <button type="submit" class="btn">Reservar Mi Cupo Gratis →</button>
+                <p style="text-align: center; margin-top: 1rem; color: var(--l); font-size: 0.875rem;">
+                    📧 Te enviaremos un recordatorio 24h y 1h antes del evento
+                </p>
+            </form>
+
+            <div class="host">
+                <div class="avatar">AC</div>
+                <div class="host-info">
+                    <h3>Tu Ponente: Alfred CamHer</h3>
+                    <p>CEO Autónomo | De 70h/semana a 25h | 500+ emprendedores ayudados | Sistemas > Tácticas</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 CEO Autónomo | <a href="#" style="color: var(--p);">Política de Privacidad</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('webinar-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In production: send to API, redirect to thank you page
+            window.location.href = '/webinar-thank-you.html';
+        });
+    </script>
+</body>
+</html>
