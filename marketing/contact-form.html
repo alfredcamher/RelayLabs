@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - CEO Autónomo</title>
+    <style>
+        :root { --primary: #2563eb; --secondary: #059669; --accent: #f59e0b; --text: #1f2937; --text-light: #6b7280; --bg: #f9fafb; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); line-height: 1.6; color: var(--text); }
+        .container { max-width: 600px; margin: 3rem auto; padding: 0 1.5rem; }
+        .header { text-align: center; margin-bottom: 2rem; }
+        h1 { color: var(--primary); margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text-light); }
+        .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); }
+        input, textarea, select { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-family: inherit; font-size: 1rem; }
+        input:focus, textarea:focus { outline: none; border-color: var(--primary); ring: 2px solid #dbeafe; }
+        textarea { min-height: 120px; resize: vertical; }
+        .btn { background: var(--primary); color: white; border: none; padding: 1rem 2rem; border-radius: 6px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; }
+        .btn:hover { background: #1d4ed8; }
+        .back-link { display: inline-block; margin-bottom: 1rem; color: var(--primary); text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+        .success { background: #d1fae5; color: #065f46; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Volver al inicio</a>
+        
+        <div class="header">
+            <h1>Contacto</h1>
+            <p class="subtitle">¿Preguntas? Estamos aquí para ayudarte</p>
+        </div>
+        
+        <div class="card">
+            <div class="success" id="success-message">
+                <strong>¡Mensaje enviado!</strong><br>
+                Te responderemos en 24-48 horas.
+            </div>
+            
+            <form id="contact-form" action="/api/contact" method="POST">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Asunto</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Selecciona...</option>
+                        <option value="pre-sale">Pregunta antes de comprar</option>
+                        <option value="support">Soporte técnic</option>
+                        <option value="refund">Solicitar reembolso</option>
+                        <option value="affiliate">Programa de afiliados</option>
+                        <option value="other">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" required placeholder="¿En qué podemos ayudarte?"></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Enviar mensaje</button>
+            </form>
+        </div>
+        
+        <p style="text-align: center; margin-top: 2rem; color: var(--text-light); font-size: 0.875rem;">
+            Email directo: <a href="mailto:support@ceoautonomo.com" style="color: var(--primary);">support@ceoautonomo.com</a>
+        </p>
+    </div>
+    
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In production: send to backend API
+            document.getElementById('success-message').style.display = 'block';
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('success-message').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
