@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Afiliados - CEO Autonomo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f9fafb; }
+        .header { background: linear-gradient(135deg, #2563eb 0%, #059669 100%); color: white; padding: 1.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .stat-value { font-size: 2rem; font-weight: 700; color: #2563eb; }
+        .stat-label { color: #6b7280; font-size: 0.875rem; }
+        .positive { color: #059669; }
+        .negative { color: #dc2626; }
+        .card { background: white; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .card h2 { color: #1f2937; margin-bottom: 1rem; font-size: 1.25rem; }
+        .link-box { background: #f3f4f6; padding: 1rem; border-radius: 4px; font-family: monospace; font-size: 0.875rem; word-break: break-all; margin: 0.5rem 0; }
+        .btn { background: #2563eb; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 500; }
+        .btn:hover { background: #1d4ed8; }
+        .btn-secondary { background: #f3f4f6; color: #374151; }
+        .btn-secondary:hover { background: #e5e7eb; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 0.75rem; border-bottom: 1px solid #e5e7eb; }
+        th { color: #6b7280; font-weight: 500; font-size: 0.875rem; }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; }
+        .badge-pending { background: #fef3c7; color: #92400e; }
+        .badge-paid { background: #d1fae5; color: #065f46; }
+        .badge-commission { background: #dbeafe; color: #1e40af; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .payout-info { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 1rem; border-radius: 6px; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Dashboard Afiliados</h1>
+            <p style="opacity: 0.9;">Bienvenido de vuelta, Afiliado #AFF001</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">$0.00</div>
+                <div class="stat-label">Ganancias Totales</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$0.00</div>
+                <div class="stat-label">Ganancias este Mes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value $positive">$0.00</div>
+                <div class="stat-label">Pendiente de Pago</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Ventas Totales</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Clicks Totales</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0%</div>
+                <div class="stat-label">Tasa de Conversion</div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="grid-2">
+            <div class="card">
+                <h2>🔗 Tu Link de Afiliado</h2>
+                <p style="color: #6b7280; margin-bottom: 1rem;">Comparte este link para ganar 30% en cada venta</p>
+                <div class="link-box">https://ceoautonomo.com/?ref=AFF001&utm_source=affiliate&utm_medium=direct</div>
+                <button class="btn" onclick="copyLink()">Copiar Link</button>
+                <button class="btn btn-secondary" style="margin-left: 0.5rem;">Ver Herramientas</button>
+            </div>
+
+            <div class="card">
+                <h2>💰 Informacion de Pago</h2>
+                <p style="color: #6b7280; margin-bottom: 1rem;">Tus proximos pagos</p>
+                <div class="payout-info">
+                    <strong>Proximo pago: 15 Mayo 2026</strong><br>
+                    <span style="font-size: 0.875rem; color: #6b7280;">
+                        Minimo $50 USD para transferencia automatica<br>
+                        Metodo: Stripe Connect
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transactions Table -->
+        <div class="card">
+            <h2>📊 Historial de Transacciones</h2>
+            <p style="color: #6b7280; margin-bottom: 1rem;">Ventas generadas con tu link (altimos 30 dias)</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Venta</th>
+                        <th>Tu Comision</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #6b7280; padding: 2rem;">
+                            Aun no hay transacciones.<br>
+                            <span style="font-size: 0.875rem;">Comparte tu link para empezar a generar comisiones.</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Resources -->
+        <div class="card">
+            <h2>🛠️ Recursos para Afiliados</h2>
+            <p style="color: #6b7280; margin-bottom: 1rem;">Todo lo necesario para promocionar CEO Autonomo</p>
+            <div class="grid-2">
+                <div>
+                    <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Banners y Creativos</h3>
+                    <p style="color: #6b7280; font-size: 0.875rem;">Descarga banners en multiples tamanos para web y redes sociales.</p>
+                    <button class="btn btn-secondary" style="margin-top: 0.5rem;">Descargar Kit</button>
+                </div>
+                <div>
+                    <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Copy y Templates</h3>
+                    <p style="color: #6b7280; font-size: 0.875rem;">Textos probados para email, Instagram, Twitter y LinkedIn.</p>
+                    <button class="btn btn-secondary" style="margin-top: 0.5rem;">Ver Templates</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Tips -->
+        <div class="card">
+            <h2>💡 Consejos para Maximizar tus Ventas</h2>
+            <ul style="color: #374151; line-height: 1.8; margin-left: 1.5rem;">
+                <li><strong>Email:</strong> 3-5% conversion con trafico caliente</li>
+                <li><strong>Redes Sociales:</strong> Comparte tu experiencia personal con el producto</li>
+                <li><strong>Review/Resena:</strong> Crear contenido detallado genera confianza</li>
+                <li><strong>Webinar:</strong> Presentaciones en vivo tienen la mayor conversion</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function copyLink() {
