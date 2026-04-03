@@ -1,0 +1,20 @@
+date,platform,content_type,content_ref,hashtags,time_to_post,objective
+2026-04-03,instagram,post,post_1,"#CEOautonomo #Emprendimiento #NegociosDigitales #Productividad #Emprendedor",09:00,awareness
+2026-04-03,twitter,tweet,tweet_1,"#CEOautonomo #Emprendimiento",10:00,awareness
+2026-04-03,twitter,tweet,tweet_2,,11:00,agitation
+2026-04-04,instagram,post,post_2,"#CEOautonomo #CrecimientoEmpresarial #MentalidadCEO",09:00,consideration
+2026-04-04,linkedin,article,linkedin_1,,12:00,authority
+2026-04-05,instagram,post,post_4,"#FrasesEmprendedores #Sistemas #Negocios",09:00,engagement
+2026-04-05,twitter,thread,thread_1,,10:00,education
+2026-04-06,instagram,post,post_3,"#Testimonio #Escalabilidad #Emprendimiento",09:00,trust
+2026-04-06,linkedin,post,linkedin_3,,13:00,consideration
+2026-04-07,twitter,tweet,tweet_5,"#CEOautonomo #FreelancePros",09:00,benefits
+2026-04-07,instagram,post,post_5,"#Oferta #CEOautonomo #Emprendedores",17:00,conversion
+2026-04-08,instagram,post,post_6,"#DetrasDeEscena #ContenidoValor",09:00,trust
+2026-04-08,linkedin,carousel,linkedin_2,,11:00,education
+2026-04-09,twitter,tweet,tweet_8,,09:00,framework
+2026-04-09,twitter,tweet,tweet_9,,10:00,objection_handling
+2026-04-09,instagram,post,post_7,"#EmprendimientoTips #NegociosConSistema",17:00,conversion
+2026-04-10,twitter,tweet,tweet_10,,09:00,cta
+2026-04-10,instagram,stories,all_posts,,12:00,reminder
+2026-04-10,linkedin,cta_post,cta,,17:00,conversion
