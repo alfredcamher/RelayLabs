@@ -1,0 +1,51 @@
+Name,Company/Role,Website/Twitter,What They Do,Why They Need Automation,Contact Method,Category
+1. Jason Chen,Digital Agency Founder,https://twitter.com/jasonchendev,Runs SEO & content agency (15 employees),Manual client reporting + invoice generation costs 10hrs/week,@jasonchendev,Digital Agency
+2. Sarah Martinez,Freelance Product Designer,https://twitter.com/sarahdesigns,Design services (branding + UI/UX),Repetitive client onboarding & project setup,@sarahdesigns,Freelancer
+3. Alex Thompson,SaaS Founder - HR Tech,https://www.producthunt.com/@alexthompson,Built employee scheduling SaaS,Employee onboarding automation + data syncing,Product Hunt profile,SaaS Founder
+4. Emma Wilson,E-commerce Shop Owner,https://twitter.com/emmaecshop,Runs 3 Shopify stores,Order fulfillment + inventory sync across platforms,@emmaecshop,E-commerce
+5. David Park,Web Dev Agency CEO,https://indiehackers.com/david-park,Full-service web dev shop (12 devs),Quote generation + client project tracking is manual,IH profile,Digital Agency
+6. Jessica Garcia,Content Marketing Consultant,https://twitter.com/jessicamarkets,Manages content for 8 B2B clients,Excel-based client reporting + scheduling posts,@jessicamarkets,Freelancer
+7. Mike Sullivan,PPC Agency Lead,https://www.linkedin.com/in/mikesullivan,Manages Google Ads for 20+ clients,Manual bid adjustments + daily performance reports,LinkedIn,Digital Agency
+8. Rachel Kim,Social Media Manager (Multi-Client),https://twitter.com/rachelkimsocial,Manages social for 6 brands,Scheduling + analytics compilation is tedious,@rachelkimsocial,Freelancer
+9. Tom Cooper,Shopify Store Owner,https://twitter.com/tomcooperstore,E-commerce: Pet supplies,Inventory management + email marketing manual,@tomcooperstore,E-commerce
+10. Lauren Black,Email Marketing Consultant,https://indiehackers.com/lauren-black,Runs email campaigns for SaaS clients,Manual segmentation + list management for 5 clients,IH profile,Freelancer
+11. Chris Johnson,Graphic Design Agency,https://twitter.com/chrisdesignco,Design studio (10 creatives),Job allocation + invoice tracking manual,@chrisdesignco,Digital Agency
+12. Nina Patel,Virtual Assistant Service,https://twitter.com/ninavaservices,Manages ops for 20 small business clients,Scheduling + task assignment for clients,@ninavaservices,Freelancer
+13. Ryan Hayes,Marketing Automation Specialist,https://twitter.com/ryanauto,Implements Zapier/Make workflows,Needs better integration platform,@ryanauto,Freelancer
+14. Sophie Laurent,Translation Agency Owner,https://www.linkedin.com/in/sophielaurent,Language services (5 translators),Project assignment + payment tracking manual,LinkedIn,Digital Agency
+15. Marcus Johnson,Drop Shipping Business Owner,https://twitter.com/marcusdropship,Runs 2 drop shipping stores,Supplier updates + order routing manual,@marcusdropship,E-commerce
+16. Olivia Chen,UX Research Consultant,https://twitter.com/oliviauxresearch,Conducts research for 4 B2B companies,Interview scheduling + data synthesis manual,@oliviauxresearch,Freelancer
+17. Brett Miller,Performance Coaching Agency,https://indiehackers.com/brett-miller,Coaches 30+ clients online,Session scheduling + progress tracking manual,IH profile,Digital Agency
+18. Aisha Taylor,Bookkeeping Service Provider,https://twitter.com/aishabookkeep,Manages books for 15 SMBs,Expense tracking + report generation manual,@aishabookkeep,Freelancer
+19. Kevin Zhang,WooCommerce Store Owner,https://twitter.com/kevinwoostore,Home decor e-commerce,Customer data sync + inventory alerts needed,@kevinwoostore,E-commerce
+20. Priya Verma,B2B Lead Gen Specialist,https://twitter.com/priyaleadgen,Generates leads for 8 SaaS companies,List building + follow-up sequences manual,@priyaleadgen,Freelancer
+21. Nathan Pierce,Video Production Agency,https://www.linkedin.com/in/nathanpierce,Produces videos for brands (7 staff),Project timelines + client asset management manual,LinkedIn,Digital Agency
+22. Grace Wong,Fitness Coach (Online),https://twitter.com/gracefitcoach,Trains 200+ online clients,Class scheduling + member communication manual,@gracefitcoach,Freelancer
+23. Lucas Martinez,SEO Agency Owner,https://indiehackers.com/lucas-seo,Full-service SEO (8 employees),Client reporting + rank tracking manual,IH profile,Digital Agency
+24. Megan O'Brien,Copywriting Freelancer,https://twitter.com/megancopywriter,Writes for 12 different clients,Project deadlines + invoice tracking manual,@megancopywriter,Freelancer
+25. Jordan Blake,Amazon FBA Seller,https://twitter.com/jordanamazon,Sells products on Amazon + own site,Pricing sync + review monitoring manual,@jordanamazon,E-commerce
+26. Zara Ahmed,HR Consultant,https://twitter.com/zarahrconsult,Advises 6 growing companies,Employee data collection + reporting manual,@zarahrconsult,Freelancer
+27. Ethan White,Branding Agency CEO,https://www.linkedin.com/in/ethanwhite,Full branding services (9 staff),Brand asset management + client comms manual,LinkedIn,Digital Agency
+28. Sophia Rodriguez,Paid Ads Freelancer,https://twitter.com/sophiapaidads,Manages Google/Meta ads for 10 clients,Campaign setup + optimization manual,@sophiapaidads,Freelancer
+29. Oliver Thompson,Niche E-commerce (Fitness),https://twitter.com/oliverfitshop,Supplements e-commerce store,Affiliate program + customer comms manual,@oliverfitshop,E-commerce
+30. Maya Gupta,Customer Success Consultant,https://indiehackers.com/maya-cs,Improves CS for 5 SaaS companies,Data gathering + report generation manual,IH profile,Freelancer
+31. Jackson Hall,Sales Enablement Agency,https://twitter.com/jacksonhallsales,Trains sales teams for B2B companies,Sales tracking + reporting manual,@jacksonhallsales,Digital Agency
+32. Emma Stone,Wellness Coach,https://twitter.com/emmawellnesshq,Manages 15 group coaching programs,Class scheduling + member database manual,@emmawellnesshq,Freelancer
+33. Carter Lee,E-Learning Platform Creator,https://www.linkedin.com/in/carterlee,Creates online courses (3 active),Student onboarding + communications manual,LinkedIn,SaaS Founder
+34. Lily Park,Influencer Management Agency,https://twitter.com/lilyinfluencer,Manages 20 micro-influencers,Campaign tracking + payment processing manual,@lilyinfluencer,Digital Agency
+35. Noah Jackson,Print-on-Demand Store Owner,https://twitter.com/noahpodstore,Print merch e-commerce + marketing,Order routing + fulfillment notifications manual,@noahpodstore,E-commerce
+36. Isabella Brown,HR Tech SaaS Founder,https://indiehackers.com/isabella-hr,Building attendance tracking SaaS,Customer onboarding + demo scheduling manual,IH profile,SaaS Founder
+37. Benjamin Davis,Content Syndication Agency,https://twitter.com/bencontentsyndicate,Distributes content for 15 clients,Publication coordination + analytics manual,@bencontentsyndicate,Digital Agency
+38. Amelia Foster,Course Creator,https://twitter.com/ameliacourses,Teaches 5 online courses simultaneously,Student progress tracking + email sequences manual,@ameliacourses,Freelancer
+39. Lucas Wood,Fashion E-commerce Store,https://www.linkedin.com/in/lucaswood,Designer fashion reseller,Inventory across marketplaces + pricing manual,LinkedIn,E-commerce
+40. Victoria Lewis,Tech Recruitment Consultant,https://twitter.com/victoriatech,Recruits for 8 tech companies,Candidate tracking + client updates manual,@victoriatech,Freelancer
+41. Mason Turner,Marketing Ops Agency,https://indiehackers.com/mason-ops,Fixes marketing operations for SaaS,Data pipeline + CRM integration projects,IH profile,Digital Agency
+42. Harper Green,Nutritionist (Online Practice),https://twitter.com/harpernutrition,Coaches 100+ nutrition clients,Client plans + food tracking data manual,@harpernutrition,Freelancer
+43. Julian Price,AI Automation Startup,https://twitter.com/julianaiautomation,Building AI automation tools,Internal workflows + customer data sync,@julianaiautomation,SaaS Founder
+44. Scarlett Moore,Brand Consulting Agency,https://www.linkedin.com/in/scarlettmoore,Brand strategy for 10+ companies,Research compilation + presentation creation manual,LinkedIn,Digital Agency
+45. Liam Anderson,Niche SaaS - Booking Tool,https://indiehackers.com/liam-booking,Selling appointment booking SaaS,Onboarding + feature rollout + customer comms,IH profile,SaaS Founder
+46. Aurora Chen,Virtual Event Manager,https://twitter.com/auroraevents,Manages 20+ virtual events/year,Attendee tracking + follow-up sequences manual,@auroraevents,Freelancer
+47. Jasper Knight,Business Coaching Franchise,https://twitter.com/jasperknight,Franchises coaching business,Franchisee tracking + royalty calculations manual,@jasperknight,Digital Agency
+48. Ruby Watson,Subscription Box Founder,https://www.linkedin.com/in/rubywatson,Curated monthly subscription boxes,Inventory + shipping + customer comms manual,LinkedIn,E-commerce
+49. Silas Murphy,Marketing Attribution SaaS,https://indiehackers.com/silas-attribution,Building marketing analytics tool,Internal lead management + demo scheduling,IH profile,SaaS Founder
+50. Ivy Sterling,Property Management Assistant,https://twitter.com/ivypropertyhelp,Manages ops for 30 rental properties,Tenant comms + maintenance tracking + billing manual,@ivypropertyhelp,Freelancer
