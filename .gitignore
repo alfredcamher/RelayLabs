@@ -62,3 +62,12 @@ yarn-error.log
 
 # Specific to this project
 # (Add any sensitive patterns here)
+
+# PDF Products - NEVER commit paid content
+products/*.pdf
+products/**/*.pdf
+!products/lead-magnet-checklist.pdf
+
+# Secrets directory
+secrets/
+.secrets*
