@@ -1,47 +1,50 @@
 #!/bin/bash
-# Stripe Webhook Listener - Auto-delivery System
-# Usage: ./start-webhook.sh [forward-url]
-
-WEBHOOK_SECRET=""
-PORT=4242
+# Stripe Webhook Listener - Auto-delivery System with Resend
+# Usage: ./start-webhook.sh
 
 echo "=== Relay Labs - Stripe Webhook Listener ==="
 echo "Product: CEO Autónomo (prod_UFoP8JQIWob942)"
-echo "PDF: products/CEO-Autonomo-Guia-Maestra-v3.0.pdf"
+echo "PDF Delivery: Resend API (auto)"
 echo ""
 
-# Check if stripe is authenticated
+# Check dependencies
 if ! stripe config --list > /dev/null 2>&1; then
-    echo "Error: Stripe CLI not authenticated"
+    echo "❌ Stripe CLI not authenticated"
     echo "Run: stripe login"
     exit 1
 fi
 
-echo "Stripe CLI authenticated ✓"
+echo "✓ Stripe CLI authenticated"
 
-# Forward to local endpoint or just log
-echo ""
-echo "Starting webhook listener for 'checkout.session.completed'..."
-echo "Events will be logged to: ./webhook-logs/"
-echo ""
+# Check Python script exists
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DELIVERY_SCRIPT="$SCRIPT_DIR/deliver-pdf.py"
+
+if [[ ! -f "$DELIVERY_SCRIPT" ]]; then
+    echo "❌ Delivery script not found: $DELIVERY_SCRIPT"
+    exit 1
+fi
+
+echo "✓ Delivery script ready"
 
 # Create logs directory
-mkdir -p ~/workspace/webhook-stripe/webhook-logs
+mkdir -p "$SCRIPT_DIR/logs"
 
-# Listen and log
-echo "Listening... Press Ctrl+C to stop"
+echo ""
+echo "Starting webhook listener..."
+echo "Events: checkout.session.completed"
+echo "Logs: $SCRIPT_DIR/logs/"
+echo ""
+echo "Press Ctrl+C to stop"
+echo ""
 
+# Listen and pipe to Python handler
 stripe listen \
     --events checkout.session.completed \
-    --print-json | while read line; do
-    # Log with timestamp
-    TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-    echo "$line" > ~/workspace/webhook-stripe/webhook-logs/event-${TIMESTAMP}.json
+    --print-json | while read -r line; do
     
-    # Extract customer email and log
-    echo "[$(date +%H:%M:%S)] Event received, saved to webhook-logs/event-${TIMESTAMP}.json"
+    # Skip empty lines
+    [[ -z "$line" ]] && continue
     
-    # TODO: Add PDF delivery integration here
-    # When ready, integrate with Resend API for auto-delivery
-    echo "[$(date +%H:%M:%S)] PDF delivery: READY (manual process until Resend configured)"
+    echo "$line" | python3 "$DELIVERY_SCRIPT"
 done
